@@ -20,6 +20,27 @@
             <result name="success">/vistas/pantallaPrincipal.jsp</result>
             <result name="error">/vistas/pantallaLogin.jsp</result>
         </action>
-        
+       
+    </package>
+    <package name="organizacion" extends="struts-default">
+        <action name="verOrganizacion" class="Actions.OrganizationAction">
+            <result name="success">/vistas/pantallaPrincipalOrganizacion.jsp</result>
+            <result name="error">/vistas/error.jsp</result>
+        </action>
+    </package>
+    <package name="evento" extends="struts-default">
+        <!--accion para mostrar el formulario -->
+        <action name="formCrearEvento" class="Actions.FormCrearAction">
+            <result name="input">vistas/crearEvento.jsp</result>
+         <!--accion para procesar la creacion del evento una vez rellenado el formulario -->
+        <action name="crearEvento" class="Actions.NewEventAction">
+            <result name="success" type="redirect">verOrganizacion</result>
+            <result name="input">/vistas/crearEvento.jsp</result>
+        </action>
+        <action name="eliminarEvento"  class="Actions.EliminarEventoAction"  >
+            <result name="success" type="redirectAction">  <param name="actionName">verOrganizacion</param>
+                <param name="idOrganizacion">${idOrganizacion}</param>
+            </result>
+        </action>
     </package>
 </struts>
