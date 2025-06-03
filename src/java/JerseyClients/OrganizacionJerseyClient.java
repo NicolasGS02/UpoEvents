@@ -28,39 +28,20 @@ public class OrganizacionJerseyClient {
         webTarget = client.target(BASE_URI).path("models.organizaciones");
     }
 
-    /**
-     * Constructor que registra Basic Auth en el cliente.
-     * Todas las peticiones llevarán la cabecera Authorization: Basic ...
-     */
-    public OrganizacionJerseyClient(String username, String password) {
-        HttpAuthenticationFeature feature = HttpAuthenticationFeature.basic(username, password);
-        client = ClientBuilder.newClient().register(feature);
-        webTarget = client.target(BASE_URI).path("models.organizaciones");
-    }
-
-    /**
-     * GET /models.organizaciones/{id} en XML
-     * @param <T>          tipo de retorno (por ejemplo, Organizaciones.class)
-     * @param responseType clase de la respuesta
-     * @param id           cadena con el idOrganizacion (p. ej. "3")
-     * @return instancia de T (Organizaciones) si existe
-     * @throws ClientErrorException si hay un error HTTP (ej. 404)
-     */
+   
+    
     public <T> T find_XML(Class<T> responseType, String id) throws ClientErrorException {
         WebTarget resource = webTarget.path(id);
         return resource.request(javax.ws.rs.core.MediaType.APPLICATION_XML).get(responseType);
     }
 
-    /**
-     * GET /models.organizaciones/{id} en JSON
-     */
+   
     public <T> T find_JSON(Class<T> responseType, String id) throws ClientErrorException {
         WebTarget resource = webTarget.path(id);
         return resource.request(javax.ws.rs.core.MediaType.APPLICATION_JSON).get(responseType);
     }
 
-    // (Opcional) Métodos para create, edit, remove, findAll… 
-    // Si no los necesitas para el login, puedes omitirlos.
+   
 
     public void close() {
         client.close();
