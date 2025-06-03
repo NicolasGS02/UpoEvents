@@ -101,7 +101,7 @@
                 <s:fielderror fieldName="evento.capacidad"/><br/>
                 <s:fielderror fieldName="evento.informacion"/><br/>
                 <s:fielderror fieldName="evento.ubicacion"/><br/>
-                <s:fielderror fieldName="evento.fecha"/>
+                <s:fielderror fieldName="fechaEvento"/>
             </div>
         </s:if>
 
@@ -131,7 +131,7 @@
                 <tr>
                     
                     <td class="field-cell">
-                        <s:textfield name="evento.fecha" id="fecha" placeholder="YYYY-MM-DD" label="Fecha"/>
+                        <s:textfield name="fechaEvento" id="fecha" placeholder="YYYY-MM-DD" label="Fecha"/>
                     </td>
                 </tr>
             </table>

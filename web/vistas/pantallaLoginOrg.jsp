@@ -4,10 +4,10 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>Iniciar Sesión</title>
+        <title>Login Organización</title>
         <style>
             body {
-                margin: 0; 
+                margin: 0;
                 padding: 0;
                 background-color: #f2f2f2;
                 font-family: Arial, sans-serif;
@@ -23,8 +23,9 @@
                 text-align: center;
             }
             .login-container img {
+                display: block;
                 max-width: 150px;
-                margin-bottom: 20px;
+                margin: 0 auto 20px auto; /* Centro horizontal y espacio inferior */
             }
             .login-container h2 {
                 margin-top: 0;
@@ -70,64 +71,54 @@
                 cursor: pointer;
                 text-decoration: none;
                 text-align: center;
+                margin-top: 15px;
             }
             .btn:hover {
                 background-color: #0056b3;
             }
             .secondary-btn {
+                
                 background-color: #6c757d;
             }
             .secondary-btn:hover {
                 background-color: #5a6268;
             }
-            .link-small {
-                display: block;
-                margin-top: 10px;
-                font-size: 13px;
-                color: #007bff;
-                text-decoration: none;
-            }
-            .link-small:hover {
-                text-decoration: underline;
-            }
         </style>
     </head>
     <body>
         <div class="login-container">
-
+            <!-- Mensajes de error del Action, si existen -->
             <s:if test="hasActionErrors()">
                 <div class="error-messages">
                     <s:actionerror/>
                 </div>
             </s:if>
 
+            <!-- Logo centrado -->
             <img src="imagenes/lupo_400x400.jpg" alt="Logo Upo">
-            <s:form action="login" method="post">
 
-                <h2>Login</h2>
+            <!-- Título -->
+            <h2>Login Organización</h2>
+
+            <!-- Formulario de login de organización -->
+            <s:form action="loginOrg" method="post">
                 <table>
                     <tr>
-                        <td><s:textfield name="identificador" id="identificador" label="Usuario"/></td>
+
+                        <td><s:textfield name="orgId" id="orgId" label="OrgID"/></td>
                     </tr>
                     <tr>
-                        <td><s:password name="password" id="password"  label="Contraseña"/></td>
+
+                        <td><s:password name="orgPassword" id="orgPassword" label="Contraseña"/></td>
                     </tr>
                 </table>
-                <br/>
-                <s:submit value="Log In" cssClass="btn"/>
+                <s:submit value="Ingresar" cssClass="btn"/>
             </s:form>
-
-
 
             <s:form action="" method="get">
                 <s:submit value="Registrarse" cssClass="btn secondary-btn" />
-            </s:form>
+            </s:form>     
 
-
-
-            <a href="<s:url action='formLoginOrg'/>" class="link-small">
-                ¿Eres organización? Inicia sesión aquí
-            </a>
         </div>
     </body>
 </html>
