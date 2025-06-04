@@ -16,6 +16,7 @@
             <result>/vistas/pantallaLogin.jsp</result>
         </action>
         
+<<<<<<< Updated upstream
         <action name="login" class="Actions.LoginAction">
             <result name="success">/vistas/pantallaPrincipal.jsp</result>
             <result name="error">/vistas/pantallaLogin.jsp</result>
@@ -26,5 +27,20 @@
         <action name="loginOrg" class="Actions.LoginOrgAction">
             <result name="success">/vistas/pantallaPrincipal.jsp</result>
         </action>
+=======
+        <action name="loginUsuario" class="Actions.LoginAction">
+            <result name="success">/vistas/pantallaPrincipal.jsp</result>
+            <result name="error">/vistas/pantallaLogin.jsp</result>    
+        </action>
+        
+        <action name="mostrarformLogin" >
+            <result>/vistas/pantallaLoginOrg.jsp</result>
+        </action>
+        
+            <action name="loginOrg" class="Actions.OrgLoginAction">
+            <result name="success">/vistas/pantallaPrincipalOrganizacion.jsp</result>
+        </action>
+
+>>>>>>> Stashed changes
     </package>
 </struts>

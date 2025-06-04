@@ -4,7 +4,11 @@
     Author     : agarc
 --%>
 
+<<<<<<< Updated upstream
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+=======
+<%@page contentType="text/html" pageEncoding="UTF-8"%>Add commentMore actions
+>>>>>>> Stashed changes
 <!DOCTYPE html>
 <html>
     <head>
@@ -19,4 +23,8 @@
         %>
 
     </body>
+<<<<<<< Updated upstream
 </html>
+=======
+</html>
+>>>>>>> Stashed changes
