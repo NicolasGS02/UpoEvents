@@ -14,7 +14,7 @@
     <body>
        
         <%
-            // Redirige inmediatamente a la acción Struts que muestra el login
+            
             response.sendRedirect("vistaPrincipal.action");
         %>
 
