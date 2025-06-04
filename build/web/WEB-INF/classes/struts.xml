@@ -4,7 +4,7 @@
 
 <struts>
     <!-- Configuration for the default package. -->
-    <package name="default" extends="struts-default">
+    <package name="default" extends="struts-default" namespace="/">
         
         <action name="">
             <result type="chain">
@@ -20,6 +20,11 @@
             <result name="success">/vistas/pantallaPrincipal.jsp</result>
             <result name="error">/vistas/pantallaLogin.jsp</result>
         </action>
-        
+        <action name="mostrarformLogin" class="Actions.mostrarformLoginAction">
+            <result name="success">/vistas/pantallaLoginOrg.jsp</result>
+        </action>
+        <action name="loginOrg" class="Actions.LoginOrgAction">
+            <result name="success">/vistas/pantallaPrincipal.jsp</result>
+        </action>
     </package>
 </struts>

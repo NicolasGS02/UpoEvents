@@ -25,6 +25,6 @@
         <s:form action="">
             <s:submit value="Registrarse"></s:submit>
         </s:form>
-      
+            <a href="<s:url action="mostrarformLogin"/>">login Org</a> 
     </body>
 </html>
