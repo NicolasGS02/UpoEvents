@@ -4,7 +4,7 @@ import javax.ws.rs.ClientErrorException;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.WebTarget;
-import org.glassfish.jersey.client.authentication.HttpAuthenticationFeature;
+
 
 /**
  * Jersey REST client para el recurso OrganizacionesFacadeREST [models.organizaciones].
