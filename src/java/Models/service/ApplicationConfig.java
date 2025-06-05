@@ -33,6 +33,7 @@ public class ApplicationConfig extends Application {
         resources.add(Models.service.EntradasFacadeREST.class);
         resources.add(Models.service.EntradausuariosFacadeREST.class);
         resources.add(Models.service.EventosFacadeREST.class);
+        resources.add(Models.service.FacturasFacadeREST.class);
         resources.add(Models.service.OrganizacionesFacadeREST.class);
         resources.add(Models.service.PublicacionesFacadeREST.class);
         resources.add(Models.service.UsuariosFacadeREST.class);

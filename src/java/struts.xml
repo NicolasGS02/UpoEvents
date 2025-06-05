@@ -16,11 +16,30 @@
             <result>/vistas/pantallaLoginUsuario.jsp</result>
         </action>
         
+        <!-- RELACIONADO CON LOGIN USUARIO -->
+        
         <action name="login" class="Actions.LoginAction">
-            <result name="success">/vistas/pantallaPrincipal.jsp</result>
+            <result name="success" type="chain">
+                <param name="actionName">cargarEventos</param>
+            </result>
             <result name="error">/vistas/pantallaLoginUsuario.jsp</result>
         </action>
         
+        
+        <action name="cargarEventos" class="Actions.ListarEventosUsuarioAction">
+            <result>/vistas/pantallaPrincipal.jsp</result>
+        </action>
+        
+        <!-- _______________________________________________ -->
+            
+        <!-- RELACIONADO CON EVENTOS--> 
+        
+        <action name="detalleEventos" class="Actions.DetallesDeEventoAction">
+            <result name="success">/vistas/informacionEvento.jsp</result>
+        </action>
+            
+          
+         <!-- _______________________________________________ -->  
         <action name="formLoginOrg">
             <result>/vistas/pantallaLoginOrg.jsp</result>
         </action>

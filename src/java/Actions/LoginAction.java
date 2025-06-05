@@ -5,10 +5,15 @@
  */
 package Actions;
 
+import JerseyClients.EventosJerseyClient;
 import JerseyClients.UsuariosJerseyClient;
-import Models.Organizaciones;
+import Models.Eventos;
+
 import Models.Usuarios;
 import com.opensymphony.xwork2.ActionSupport;
+import java.util.List;
+import javax.ws.rs.core.GenericType;
+
 
 /**
  *
@@ -19,7 +24,7 @@ public class LoginAction extends ActionSupport {
     private String identificador;
     private String password;
     private Usuarios user;
-    private Organizaciones org;
+
 
     public LoginAction() {
     }
@@ -44,6 +49,9 @@ public class LoginAction extends ActionSupport {
             }
 
         }
+        
+
+        userControl.close();
 
         return respuesta;
 
@@ -73,12 +81,5 @@ public class LoginAction extends ActionSupport {
         this.user = user;
     }
 
-    public Organizaciones getOrg() {
-        return org;
-    }
-
-    public void setOrg(Organizaciones org) {
-        this.org = org;
-    }
 
 }
