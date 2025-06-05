@@ -17,34 +17,46 @@
     
     <body>
         <h1>Bienvenido: <s:property value="user.nombre"></s:property> </h1>
+
+<h3>Tus futuros Eventos:</h3>
+<%--Lista de eventos para el Usuario--%>
+            
+<s:if test="todosEventos != null && !todosEventos.isEmpty()">
+    <table border="1">
+        <tr>
+            <th>Nombre</th>
+            <th>Información</th>
+
+        </tr>
+        <s:iterator value="eventosUsuario" var="evento">
+            <tr>
+                <td><s:property value="#evento.nombreEvento" /></td>
+                <td><s:property value="#evento.informacion" /></td>
+            </tr>
+        </s:iterator>
+    </table>
+</s:if>
+
+<s:else>
+    <p>No Te has registrado en Ningun Evento</p>
+</s:else>
+
+
+<%--Lista de eventos GLOBAL --%>
         
-        <%--Lista de eventos --%>
-        
-        <h3>Lista de Eventos:</h3>
+        <h3>TODOS los Eventos:</h3>
 
 <s:if test="todosEventos != null && !todosEventos.isEmpty()">
     <table border="1">
         <tr>
             <th>Nombre</th>
-            <th>Ubicación</th>
-            <th>Fecha</th>
-            <th>Capacidad</th>
             <th>Información</th>
-            <th>Imagen</th>
+
         </tr>
         <s:iterator value="todosEventos" var="evento">
             <tr>
                 <td><s:property value="#evento.nombreEvento" /></td>
-                <td><s:property value="#evento.ubicacion" /></td>
-                <td><s:date name="#evento.fecha" format="dd/MM/yyyy" /></td>
-                <td><s:property value="#evento.capacidad" /></td>
                 <td><s:property value="#evento.informacion" /></td>
-                <td>
-                    <s:if test="#evento.imagen != null">
-                        <img src="data:image/png;base64,<s:property value="@org.apache.commons.codec.binary.Base64@encodeBase64String(#evento.imagen)" />" width="100" height="100"/>
-                    </s:if>
-                    <s:else>No hay imagen</s:else>
-                </td>
             </tr>
         </s:iterator>
     </table>

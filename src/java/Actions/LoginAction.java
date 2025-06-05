@@ -24,7 +24,7 @@ public class LoginAction extends ActionSupport {
     private String identificador;
     private String password;
     private Usuarios user;
-    private List<Eventos> todosEventos;
+
 
     public LoginAction() {
     }
@@ -50,16 +50,7 @@ public class LoginAction extends ActionSupport {
 
         }
         
-        //CARGAMOS LOS EVENTOS.
-        EventosJerseyClient eventosClient = new EventosJerseyClient();
-        GenericType<List<Eventos>> generico = new GenericType<List<Eventos>>() {};
-        
-        todosEventos = (List<Eventos>) eventosClient.findAll_XML(generico);
 
-        
-        
-        
-        eventosClient.close();
         userControl.close();
 
         return respuesta;
@@ -90,12 +81,5 @@ public class LoginAction extends ActionSupport {
         this.user = user;
     }
 
-    public List<Eventos> getTodosEventos() {
-        return todosEventos;
-    }
-
-    public void setTodosEventos(List<Eventos> todosEventos) {
-        this.todosEventos = todosEventos;
-    }
 
 }

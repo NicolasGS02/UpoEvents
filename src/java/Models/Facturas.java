@@ -33,7 +33,6 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Facturas.findAll", query = "SELECT f FROM Facturas f")
     , @NamedQuery(name = "Facturas.findByIdFactura", query = "SELECT f FROM Facturas f WHERE f.idFactura = :idFactura")
     , @NamedQuery(name = "Facturas.findByCorreo", query = "SELECT f FROM Facturas f WHERE f.correo = :correo")
-    , @NamedQuery(name = "Facturas.findByIdEntradaUsuario", query = "SELECT f FROM Facturas f WHERE f.idEntradaUsuario = :idEntradaUsuario")
     , @NamedQuery(name = "Facturas.findByTarjeta", query = "SELECT f FROM Facturas f WHERE f.tarjeta = :tarjeta")
     , @NamedQuery(name = "Facturas.findByFechaCompra", query = "SELECT f FROM Facturas f WHERE f.fechaCompra = :fechaCompra")})
 public class Facturas implements Serializable {
@@ -49,10 +48,6 @@ public class Facturas implements Serializable {
     @Size(min = 1, max = 50)
     @Column(name = "Correo")
     private String correo;
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "IdEntradaUsuario")
-    private int idEntradaUsuario;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 50)
@@ -71,10 +66,9 @@ public class Facturas implements Serializable {
         this.idFactura = idFactura;
     }
 
-    public Facturas(Integer idFactura, String correo, int idEntradaUsuario, String tarjeta, Date fechaCompra) {
+    public Facturas(Integer idFactura, String correo, String tarjeta, Date fechaCompra) {
         this.idFactura = idFactura;
         this.correo = correo;
-        this.idEntradaUsuario = idEntradaUsuario;
         this.tarjeta = tarjeta;
         this.fechaCompra = fechaCompra;
     }
@@ -93,14 +87,6 @@ public class Facturas implements Serializable {
 
     public void setCorreo(String correo) {
         this.correo = correo;
-    }
-
-    public int getIdEntradaUsuario() {
-        return idEntradaUsuario;
-    }
-
-    public void setIdEntradaUsuario(int idEntradaUsuario) {
-        this.idEntradaUsuario = idEntradaUsuario;
     }
 
     public String getTarjeta() {
