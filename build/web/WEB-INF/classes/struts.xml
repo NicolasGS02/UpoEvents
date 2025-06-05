@@ -32,7 +32,14 @@
         
         <!-- _______________________________________________ -->
             
+        <!-- RELACIONADO CON EVENTOS--> 
+        
+        <action name="detalleEventos" class="Actions.DetallesDeEventoAction">
+            <result name="success">/vistas/informacionEvento.jsp</result>
+        </action>
             
+          
+         <!-- _______________________________________________ -->  
         <action name="formLoginOrg">
             <result>/vistas/pantallaLoginOrg.jsp</result>
         </action>

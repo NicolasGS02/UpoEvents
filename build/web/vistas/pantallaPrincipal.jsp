@@ -4,6 +4,7 @@
     Author     : Pc
 --%>
 
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib  uri="/struts-tags" prefix="s" %>
 <!DOCTYPE html>
@@ -16,6 +17,9 @@
     
     
     <body>
+    
+        
+        
         <h1>Bienvenido: <s:property value="user.nombre"></s:property> </h1>
 
 <h3>Tus futuros Eventos:</h3>
@@ -32,6 +36,16 @@
             <tr>
                 <td><s:property value="#evento.nombreEvento" /></td>
                 <td><s:property value="#evento.informacion" /></td>
+                
+                <td>
+                    <s:form action="detalleEventos">
+
+                        <s:hidden name="identificadorEvento" value="%{#evento.idEvento}" />
+                        <s:hidden name="user" value="user" ></s:hidden>
+                        
+                        <s:submit value="Ver detalles."></s:submit>       
+                    </s:form>
+                </td>
             </tr>
         </s:iterator>
     </table>

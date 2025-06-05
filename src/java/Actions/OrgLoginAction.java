@@ -1,6 +1,6 @@
 package Actions;
 
-import JerseyClients.OrganizacionJerseyClient;
+import JerseyClients.OrganizacionesJerseyClient;
 import Models.Organizaciones;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -43,7 +43,7 @@ public class OrgLoginAction extends ActionSupport {
         }
 
         // 4) Llamar al servicio REST para obtener la organización
-        OrganizacionJerseyClient client = new OrganizacionJerseyClient();
+        OrganizacionesJerseyClient client = new OrganizacionesJerseyClient();
 
             // Pasamos directamente el String “orgId” al método find_XML
             this.organizacion = client.find_XML(Organizaciones.class, orgId.trim());
