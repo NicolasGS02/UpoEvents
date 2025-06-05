@@ -13,6 +13,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -38,6 +39,15 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Eventos.findByUbicacion", query = "SELECT e FROM Eventos e WHERE e.ubicacion = :ubicacion")
     , @NamedQuery(name = "Eventos.findByFecha", query = "SELECT e FROM Eventos e WHERE e.fecha = :fecha")})
 public class Eventos implements Serializable {
+
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 50)
+    @Column(name = "NombreEvento")
+    private String nombreEvento;
+    @Lob
+    @Column(name = "Imagen")
+    private byte[] imagen;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -156,6 +166,22 @@ public class Eventos implements Serializable {
     @Override
     public String toString() {
         return "Models.Eventos[ idEvento=" + idEvento + " ]";
+    }
+
+    public String getNombreEvento() {
+        return nombreEvento;
+    }
+
+    public void setNombreEvento(String nombreEvento) {
+        this.nombreEvento = nombreEvento;
+    }
+
+    public byte[] getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(byte[] imagen) {
+        this.imagen = imagen;
     }
     
 }

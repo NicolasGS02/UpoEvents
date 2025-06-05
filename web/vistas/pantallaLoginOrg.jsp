@@ -1,10 +1,16 @@
-<%@ page contentType="text/html; charset=UTF-8" language="java" %>
-<%@ taglib prefix="s" uri="/struts-tags" %>
+<%-- 
+    Document   : pantallaLoginOrg
+    Created on : 04-jun-2025, 19:01:49
+    Author     : agarc
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib uri="/struts-tags" prefix="s" %>
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8" />
-        <title>Login Organización</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>JSP Page</title>
         <style>
             body {
                 margin: 0;
@@ -77,7 +83,7 @@
                 background-color: #0056b3;
             }
             .secondary-btn {
-                
+
                 background-color: #6c757d;
             }
             .secondary-btn:hover {
@@ -87,38 +93,22 @@
     </head>
     <body>
         <div class="login-container">
-            <!-- Mensajes de error del Action, si existen -->
-            <s:if test="hasActionErrors()">
-                <div class="error-messages">
-                    <s:actionerror/>
-                </div>
-            </s:if>
 
-            <!-- Logo centrado -->
-            <img src="imagenes/lupo_400x400.jpg" alt="Logo Upo">
 
-            <!-- Título -->
-            <h2>Login Organización</h2>
+            <s:form action="loginOrg">
+                <img src="imagenes/lupo_400x400.jpg" alt="Logo Upo">
 
-            <!-- Formulario de login de organización -->
-            <s:form action="loginOrg" method="post">
-                <table>
-                    <tr>
+                <s:textfield name="identificador" label="Organizacion"></s:textfield>
+                <s:password name="password" label="Contraseña"></s:password>
+                <s:submit value="Log In" cssClass="btn"></s:submit>
 
-                        <td><s:textfield name="orgId" id="orgId" label="OrgID"/></td>
-                    </tr>
-                    <tr>
-
-                        <td><s:password name="orgPassword" id="orgPassword" label="Contraseña"/></td>
-                    </tr>
-                </table>
-                <s:submit value="Ingresar" cssClass="btn"/>
             </s:form>
+            <s:submit value="Registrarse" cssClass="btn secondary-btn" />
 
-            <s:form action="" method="get">
-                <s:submit value="Registrarse" cssClass="btn secondary-btn" />
-            </s:form>     
-
+            <!-- Muestra errores de campo (p.e. campo vacío) -->
+            <s:fielderror />
+            <!-- Muestra errores globales (p.e. contraseña incorrecta) -->
+            <s:actionerror />
         </div>
     </body>
 </html>

@@ -39,6 +39,12 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Comentariopublicaciones.findByFechaComentario", query = "SELECT c FROM Comentariopublicaciones c WHERE c.fechaComentario = :fechaComentario")})
 public class Comentariopublicaciones implements Serializable {
 
+    @Basic(optional = false)
+    @NotNull
+    @Lob
+    @Column(name = "imagen")
+    private byte[] imagen;
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -59,11 +65,6 @@ public class Comentariopublicaciones implements Serializable {
     @Size(min = 1, max = 255)
     @Column(name = "Comentario")
     private String comentario;
-    @Basic(optional = false)
-    @NotNull
-    @Lob
-    @Column(name = "imagen")
-    private byte[] imagen;
     @Basic(optional = false)
     @NotNull
     @Column(name = "FechaComentario")
@@ -118,13 +119,6 @@ public class Comentariopublicaciones implements Serializable {
         this.comentario = comentario;
     }
 
-    public byte[] getImagen() {
-        return imagen;
-    }
-
-    public void setImagen(byte[] imagen) {
-        this.imagen = imagen;
-    }
 
     public Date getFechaComentario() {
         return fechaComentario;
@@ -157,6 +151,14 @@ public class Comentariopublicaciones implements Serializable {
     @Override
     public String toString() {
         return "Models.Comentariopublicaciones[ idComentario=" + idComentario + " ]";
+    }
+
+    public byte[] getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(byte[] imagen) {
+        this.imagen = imagen;
     }
     
 }

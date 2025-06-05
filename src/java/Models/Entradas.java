@@ -16,7 +16,6 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -30,8 +29,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Entradas.findAll", query = "SELECT e FROM Entradas e")
     , @NamedQuery(name = "Entradas.findByIdEntrada", query = "SELECT e FROM Entradas e WHERE e.idEntrada = :idEntrada")
     , @NamedQuery(name = "Entradas.findByIdEvento", query = "SELECT e FROM Entradas e WHERE e.idEvento = :idEvento")
-    , @NamedQuery(name = "Entradas.findByPrecio", query = "SELECT e FROM Entradas e WHERE e.precio = :precio")
-    , @NamedQuery(name = "Entradas.findByNombre", query = "SELECT e FROM Entradas e WHERE e.nombre = :nombre")})
+    , @NamedQuery(name = "Entradas.findByPrecio", query = "SELECT e FROM Entradas e WHERE e.precio = :precio")})
 public class Entradas implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -48,11 +46,6 @@ public class Entradas implements Serializable {
     @NotNull
     @Column(name = "precio")
     private long precio;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 50)
-    @Column(name = "nombre")
-    private String nombre;
 
     public Entradas() {
     }
@@ -61,11 +54,10 @@ public class Entradas implements Serializable {
         this.idEntrada = idEntrada;
     }
 
-    public Entradas(Integer idEntrada, int idEvento, long precio, String nombre) {
+    public Entradas(Integer idEntrada, int idEvento, long precio) {
         this.idEntrada = idEntrada;
         this.idEvento = idEvento;
         this.precio = precio;
-        this.nombre = nombre;
     }
 
     public Integer getIdEntrada() {
@@ -90,14 +82,6 @@ public class Entradas implements Serializable {
 
     public void setPrecio(long precio) {
         this.precio = precio;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
     }
 
     @Override

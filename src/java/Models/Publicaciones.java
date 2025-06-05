@@ -39,6 +39,12 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Publicaciones.findByFechaPublicacion", query = "SELECT p FROM Publicaciones p WHERE p.fechaPublicacion = :fechaPublicacion")})
 public class Publicaciones implements Serializable {
 
+    @Basic(optional = false)
+    @NotNull
+    @Lob
+    @Column(name = "Imagen")
+    private byte[] imagen;
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -64,11 +70,6 @@ public class Publicaciones implements Serializable {
     @Column(name = "FechaPublicacion")
     @Temporal(TemporalType.DATE)
     private Date fechaPublicacion;
-    @Basic(optional = false)
-    @NotNull
-    @Lob
-    @Column(name = "Imagen")
-    private byte[] imagen;
 
     public Publicaciones() {
     }
@@ -126,13 +127,6 @@ public class Publicaciones implements Serializable {
         this.fechaPublicacion = fechaPublicacion;
     }
 
-    public byte[] getImagen() {
-        return imagen;
-    }
-
-    public void setImagen(byte[] imagen) {
-        this.imagen = imagen;
-    }
 
     @Override
     public int hashCode() {
@@ -157,6 +151,14 @@ public class Publicaciones implements Serializable {
     @Override
     public String toString() {
         return "Models.Publicaciones[ idPublicacion=" + idPublicacion + " ]";
+    }
+
+    public byte[] getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(byte[] imagen) {
+        this.imagen = imagen;
     }
     
 }
