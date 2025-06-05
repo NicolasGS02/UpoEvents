@@ -70,10 +70,10 @@
         <action name="crearEvento" class="Actions.NewEventAction">
             <result name="success" type="redirectAction">
                 <param name="actionName">verOrganizacion</param>
-                <param name="idOrganizacion">${evento.idOrganizacion}</param>
+                <param name="idOrganizacion">${idOrganizacion}</param>
             </result>
             <result name="input">/vistas/crearEvento.jsp</result>
-            <result name="error">/vistas/error.jsp</result>
+           
         </action>
         
         <!-- _______________________________________________ -->  

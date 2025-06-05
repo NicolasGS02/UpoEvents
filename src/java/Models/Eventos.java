@@ -25,7 +25,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author Pc
+ * @author agarc
  */
 @Entity
 @Table(name = "eventos")
@@ -35,19 +35,11 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Eventos.findByIdEvento", query = "SELECT e FROM Eventos e WHERE e.idEvento = :idEvento")
     , @NamedQuery(name = "Eventos.findByIdOrganizacion", query = "SELECT e FROM Eventos e WHERE e.idOrganizacion = :idOrganizacion")
     , @NamedQuery(name = "Eventos.findByCapacidad", query = "SELECT e FROM Eventos e WHERE e.capacidad = :capacidad")
+    , @NamedQuery(name = "Eventos.findByNombreEvento", query = "SELECT e FROM Eventos e WHERE e.nombreEvento = :nombreEvento")
     , @NamedQuery(name = "Eventos.findByInformacion", query = "SELECT e FROM Eventos e WHERE e.informacion = :informacion")
     , @NamedQuery(name = "Eventos.findByUbicacion", query = "SELECT e FROM Eventos e WHERE e.ubicacion = :ubicacion")
     , @NamedQuery(name = "Eventos.findByFecha", query = "SELECT e FROM Eventos e WHERE e.fecha = :fecha")})
 public class Eventos implements Serializable {
-
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 50)
-    @Column(name = "NombreEvento")
-    private String nombreEvento;
-    @Lob
-    @Column(name = "Imagen")
-    private byte[] imagen;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -65,6 +57,11 @@ public class Eventos implements Serializable {
     private int capacidad;
     @Basic(optional = false)
     @NotNull
+    @Size(min = 1, max = 50)
+    @Column(name = "NombreEvento")
+    private String nombreEvento;
+    @Basic(optional = false)
+    @NotNull
     @Size(min = 1, max = 255)
     @Column(name = "Informacion")
     private String informacion;
@@ -78,6 +75,9 @@ public class Eventos implements Serializable {
     @Column(name = "Fecha")
     @Temporal(TemporalType.DATE)
     private Date fecha;
+    @Lob
+    @Column(name = "Imagen")
+    private byte[] imagen;
 
     public Eventos() {
     }
@@ -86,10 +86,11 @@ public class Eventos implements Serializable {
         this.idEvento = idEvento;
     }
 
-    public Eventos(Integer idEvento, int idOrganizacion, int capacidad, String informacion, String ubicacion, Date fecha) {
+    public Eventos(Integer idEvento, int idOrganizacion, int capacidad, String nombreEvento, String informacion, String ubicacion, Date fecha) {
         this.idEvento = idEvento;
         this.idOrganizacion = idOrganizacion;
         this.capacidad = capacidad;
+        this.nombreEvento = nombreEvento;
         this.informacion = informacion;
         this.ubicacion = ubicacion;
         this.fecha = fecha;
@@ -119,6 +120,14 @@ public class Eventos implements Serializable {
         this.capacidad = capacidad;
     }
 
+    public String getNombreEvento() {
+        return nombreEvento;
+    }
+
+    public void setNombreEvento(String nombreEvento) {
+        this.nombreEvento = nombreEvento;
+    }
+
     public String getInformacion() {
         return informacion;
     }
@@ -141,6 +150,14 @@ public class Eventos implements Serializable {
 
     public void setFecha(Date fecha) {
         this.fecha = fecha;
+    }
+
+    public byte[] getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(byte[] imagen) {
+        this.imagen = imagen;
     }
 
     @Override
@@ -166,22 +183,6 @@ public class Eventos implements Serializable {
     @Override
     public String toString() {
         return "Models.Eventos[ idEvento=" + idEvento + " ]";
-    }
-
-    public String getNombreEvento() {
-        return nombreEvento;
-    }
-
-    public void setNombreEvento(String nombreEvento) {
-        this.nombreEvento = nombreEvento;
-    }
-
-    public byte[] getImagen() {
-        return imagen;
-    }
-
-    public void setImagen(byte[] imagen) {
-        this.imagen = imagen;
     }
     
 }
