@@ -16,11 +16,17 @@
             <result>/vistas/pantallaLoginUsuario.jsp</result>
         </action>
         
+        <!-- RELACIONADO CON LOGIN USUARIO -->
+        
         <action name="login" class="Actions.LoginAction">
             <result name="success">/vistas/pantallaPrincipal.jsp</result>
             <result name="error">/vistas/pantallaLoginUsuario.jsp</result>
         </action>
         
+        
+        <!-- _______________________________________________ -->
+            
+            
         <action name="formLoginOrg">
             <result>/vistas/pantallaLoginOrg.jsp</result>
         </action>
