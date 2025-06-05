@@ -4,6 +4,7 @@ import JerseyClients.OrganizacionJerseyClient;
 import Models.Organizaciones;
 import com.opensymphony.xwork2.ActionSupport;
 
+
 /**
  * OrgLoginAction: autentica a una organización recibiendo el ID como String.
  */
@@ -12,7 +13,7 @@ public class OrgLoginAction extends ActionSupport {
     // Recibimos el ID como String
     private String orgId;
     private String orgPassword;
-    private Organizaciones organizacion;
+    private Organizaciones organizacion = null;
 
     @Override
     public String execute() {
@@ -43,21 +44,19 @@ public class OrgLoginAction extends ActionSupport {
 
         // 4) Llamar al servicio REST para obtener la organización
         OrganizacionJerseyClient client = new OrganizacionJerseyClient();
-        try {
+
             // Pasamos directamente el String “orgId” al método find_XML
-            organizacion = client.find_XML(Organizaciones.class, orgId.trim());
-        } catch (Exception ex) {
-            addActionError("No existe una organización con ID = " + orgId);
-            client.close();
-            return ERROR;
-        }
-        client.close();
+            this.organizacion = client.find_XML(Organizaciones.class, orgId.trim());
+            
+
 
         // 5) Comparar la contraseña
         if (!organizacion.getPassword().equals(orgPassword)) {
             addActionError("Contraseña incorrecta.");
             return ERROR;
         }
+        
+        client.close();
 
         // 6) Login exitoso
         return SUCCESS;
