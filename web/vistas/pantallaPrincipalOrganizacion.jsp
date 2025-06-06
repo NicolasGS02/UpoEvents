@@ -11,7 +11,7 @@
         <h1>Bienvenido, Organización: <s:property value="organizacion.nombre"/></h1>
 
         <s:url id="urlShowCrearEvento" action="formCrearEvento">
-            <s:param name="idOrganizacion" value="%{organizacion.idOrganizacion}"/>
+            <s:param name="idOrganizacion" value="%{idOrganizacion}"/>
 
         </s:url>
 
@@ -68,7 +68,7 @@
             </table>
         </s:else>
         <s:form action="vistaPrincipal">
-            <s:submit value="Cerrar Sesión." cssClass="btn"></s:submit>       
+            <s:submit value="Cerrar Sesión." cssClass="btn"  ></s:submit>       
         </s:form>
 
         <s:actionerror/>

@@ -25,8 +25,11 @@
                 <s:password name="password" label="Contraseña"></s:password>
                 <s:submit value="Log In" cssClass="btn"></s:submit>
 
+            </s:form >
+            <s:form action="FormRegistrarOrg">
+                <s:submit value="Registrarse"  cssClass="btn secondary-btn" />
             </s:form>
-            <s:submit value="Registrarse" cssClass="btn secondary-btn" />
+            
 
          
         </div>
