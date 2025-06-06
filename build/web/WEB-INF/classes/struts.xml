@@ -39,7 +39,7 @@
         </action>
             
           
-         <!-- _______________________________________________ -->  
+        <!-- _______________________________________________ -->  
         <action name="formLoginOrg">
             <result>/vistas/pantallaLoginOrg.jsp</result>
         </action>
@@ -62,8 +62,8 @@
         
         <!--accion para mostrar el formulario -->
         
-       <action name="formCrearEvento" class="Actions.mostrarFormEventAction">
-           <result name="success">/vistas/crearEvento.jsp</result>
+        <action name="formCrearEvento" class="Actions.mostrarFormEventAction">
+            <result name="success">/vistas/crearEvento.jsp</result>
         </action> 
         
         <!--accion para procesar la creacion del evento una vez rellenado el formulario -->
@@ -72,21 +72,19 @@
                 <param name="actionName">verOrganizacion</param>
                 <param name="idOrganizacion">${idOrganizacion}</param>
             </result>
+            
             <result name="input">/vistas/crearEvento.jsp</result>
            
         </action>
-        
         <!-- _______________________________________________ -->  
         
-        <action name="eliminarEvento"  class="Actions.EliminarEventoAction"  >
+        <action name="eliminarEvento"  class="Actions.EliminarEventoAction" >
             <result name="success" type="redirectAction">
                 <param name="actionName">verOrganizacion</param>
                 <param name="idOrganizacion">${idOrganizacion}</param>
             </result>
-            <result name="error">/vistas/error.jsp</result>
+            <result name="input">/vistas/pantallaPrincipalOrganizacion.jsp</result>
         </action>
-        
-        
         
     </package>
 </struts>

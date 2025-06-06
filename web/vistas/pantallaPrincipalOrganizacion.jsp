@@ -4,10 +4,12 @@
 <html>
     <head>
         <title>Pantalla Principal de Organización</title>
+
+        <link rel="stylesheet" href="<s:url value='/CSS/pantallaPrincipalOrganizacionCSS.css' />">
     </head>
     <body>
         <h1>Bienvenido, Organización: <s:property value="organizacion.nombre"/></h1>
-        <p>DEBUG: idOrganizacion en JSP = <s:property value="organizacion.idOrganizacion" /></p>
+
         <s:url id="urlShowCrearEvento" action="formCrearEvento">
             <s:param name="idOrganizacion" value="%{organizacion.idOrganizacion}"/>
 
@@ -33,25 +35,30 @@
                     <th>Información</th>
                     <th>Ubicación</th>
                     <th>Fecha</th>
+                    <th>Precio</th>
                     <th>Acciones</th>
                 </tr>
-                <s:iterator value="eventos" status="st">
+                <s:iterator value="eventos" var="eve">
                     <tr>
-                        <td><s:property value="idEvento"/></td>
-                        <td><s:property value="capacidad"/></td>
-                        <td><s:property value="informacion"/></td>
-                        <td><s:property value="ubicacion"/></td>
-                        <td><s:property value="fecha"/></td>
+                        <td><s:property value="#eve.idEvento"/></td>
+                        <td><s:property value="#eve.capacidad"/></td>
+                        <td><s:property value="#eve.informacion"/></td>
+                        <td><s:property value="#eve.ubicacion"/></td>
+                        <td><s:property value="#eve.fecha"/></td>
                         <td>
-                            <!-- Botón para eliminar este evento -->
-                            <s:url id="urlDeleteEvento" action="eliminarEvento">
-                                <s:param name="idEvento" value="%{idEvento}" />
-                                <s:param name="idOrganizacion" value="%{organizacion.idOrganizacion}"/>
+                            <s:iterator value="entradas" var="en">
+                                <s:if test="#en.idEvento == #eve.idEvento">
+                                    <s:property value="#en.precio"/>
+                                </s:if>
+                            </s:iterator>
+                        </td>
+                        <td>
+                            <s:form action="eliminarEvento">
+                                <s:hidden name="idEvento" value="%{#eve.idEvento}" />
+                                <s:hidden name="idOrganizacion" value="%{organizacion.idOrganizacion}" ></s:hidden>
 
-                            </s:url>
-                            <a href="<s:property value="urlDeleteEvento"/>">
-                                <button>Eliminar Evento</button>
-                            </a>
+                                <s:submit value="Eliminar."></s:submit>       
+                            </s:form>
 
 
 
@@ -60,7 +67,9 @@
                 </s:iterator>
             </table>
         </s:else>
-
+        <s:form action="vistaPrincipal">
+            <s:submit value="Cerrar Sesión." cssClass="btn"></s:submit>       
+        </s:form>
 
         <s:actionerror/>
     </body>

@@ -26,7 +26,7 @@ th {
 .button {
     padding: 6px 12px;
     background-color: #007bff;
-    color: white;
+    color: black;
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -34,3 +34,5 @@ th {
 .button.delete {
     background-color: #dc3545;
 }
+
+

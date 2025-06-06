@@ -7,42 +7,31 @@ import static com.opensymphony.xwork2.Action.SUCCESS;
 
 public class EliminarEventoAction extends ActionSupport {
 
-    private Integer idEvento;
-    private Integer idOrganizacion;
+    private int idEvento;
+    private int idOrganizacion;
 
-    private EventosJerseyClient evtClient = new EventosJerseyClient();
+   
 
     public EliminarEventoAction() {
     }
 
     @Override
     public void validate() {
-        if (idEvento == null || idEvento <= 0) {
+        if (idEvento <= 0) {
             addFieldError("idEvento", "Id de evento inválido.");
         }
-        if (idOrganizacion == null || idOrganizacion <= 0) {
+        if (idOrganizacion <= 0) {
             addFieldError("idOrganizacion", "Id de organización inválido.");
         }
     }
 
     @Override
     public String execute() {
-        if (hasFieldErrors()) {
-            return ERROR;
-        }
-
-        try {
-          
-            evtClient.remove(idEvento.toString());
-        } catch (Exception e) {
-            addActionError("Error al borrar el evento con Id = " + idEvento);
-            return ERROR;
-        }
-       
+        EventosJerseyClient eventoEliminado = new EventosJerseyClient();
+        eventoEliminado.remove(Integer.toString(idEvento));
         return SUCCESS;
     }
 
-    
     public Integer getIdEvento() {
         return idEvento;
     }
