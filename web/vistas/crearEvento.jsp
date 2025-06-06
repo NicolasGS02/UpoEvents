@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8" />
     <title>Crear Nuevo Evento</title>
-    
+      <link rel="stylesheet" href="<s:url value='/CSS/crearEventoCSS.css' />">
 </head>
 <body>
     <div class="wrapper">
@@ -15,10 +15,10 @@
         
 
         <s:form action="crearEvento" method="post">
-            <!-- Campo oculto para la organización -->
+            
             <s:hidden name="idOrganizacion" value="%{idOrganizacion}"/>
 
-            <!-- Tabla centrada que alinea label y campo en paralelo -->
+         
             <table class="form-table">
                 <tr>
                     
@@ -47,6 +47,12 @@
                     
                     <td class="field-cell">
                         <s:textfield name="fecha" id="fecha" placeholder="DD/MM/YYYY" label="Fecha"/>
+                    </td>
+                </tr>
+                <tr>
+                    
+                    <td class="field-cell">
+                        <s:textfield name="precio" id="precio"  label="Precio de las Entradas(€)"/>
                     </td>
                 </tr>
             </table>
