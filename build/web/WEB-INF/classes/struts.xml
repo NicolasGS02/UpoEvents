@@ -86,5 +86,15 @@
             <result name="input">/vistas/pantallaPrincipalOrganizacion.jsp</result>
         </action>
         
+        <action name="FormRegistrarOrg">
+            <result>/vistas/registrarOrg.jsp</result>
+        </action>
+        
+        <action name="procesarForm" class="Actions.RegistrarOrgAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">formLoginOrg</param>
+            </result>
+            <result name="input">/vistas/registrarOrg.jsp</result>
+        </action>
     </package>
 </struts>

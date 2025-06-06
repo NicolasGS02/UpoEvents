@@ -7,8 +7,6 @@ public class mostrarFormEventAction extends ActionSupport {
 
     @Override
     public String execute() {
-        // Depuración: imprime en consola
-        System.out.println(">>> ShowCreateEventAction: idOrganizacion=" + idOrganizacion);
         return SUCCESS;
     }
 
