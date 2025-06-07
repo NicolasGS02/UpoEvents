@@ -1,69 +1,93 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Actions;
 
-/**
- *
- * @author agarc
- */
+import JerseyClients.EntradasJerseyClient;
 import com.opensymphony.xwork2.ActionSupport;
+import JerseyClients.OrganizacionesJerseyClient;
+import JerseyClients.EventosJerseyClient;
+import Models.Entradas;
 import Models.Organizaciones;
 import Models.Eventos;
-import Models.service.OrganizacionesFacadeREST;
-import Models.service.EventosFacadeREST;
 import java.util.ArrayList;
 import java.util.List;
+import javax.ws.rs.core.GenericType;
 
 public class OrganizationAction extends ActionSupport {
 
-    private Integer idOrganizacion;
-    private Organizaciones organizacion;
-    private List<Eventos> eventos;
-
-    private OrganizacionesFacadeREST orgFacade = new OrganizacionesFacadeREST();
-    private EventosFacadeREST evtFacade = new EventosFacadeREST();
+    private Integer idOrganizacion;        // llega desde la URL (?idOrganizacion=123)
+    private Organizaciones organizacion;   // la organizacion que cargamos desde REST
+    private List<Eventos> eventos;         // lista de todos los eventos de esa org
+    private List<Entradas> entradas;
+    private OrganizacionesJerseyClient orgClient = new OrganizacionesJerseyClient();
+    private EventosJerseyClient evtClient = new EventosJerseyClient();
+    private EntradasJerseyClient entClient = new EntradasJerseyClient();
 
     @Override
     public void validate() {
-        // Validamos que se nos haya pasado correctamente el idOrganizacion (> 0)
         if (idOrganizacion == null || idOrganizacion <= 0) {
-            addFieldError("idOrganizacion", "Id de organización inválido");
+            addFieldError("idOrganizacion", "Id de organización inválido.");
         }
     }
 
     @Override
     public String execute() {
-        // 1) Si hubo errores de validación, devolvemos ERROR
-        if (hasFieldErrors()) {
-            return ERROR;
-        }
 
-        // 2) Intentamos cargar la organización desde la base de datos
-        organizacion = orgFacade.find(idOrganizacion);
-        if (organizacion == null) {
-            addActionError("No existe la organización con Id = " + idOrganizacion);
-            return ERROR;
-        }
+        organizacion = orgClient.find_XML(Organizaciones.class, idOrganizacion.toString());
 
-        // 3) Cargamos TODOS los eventos y luego filtramos los de esta organización
-        List<Eventos> todos = evtFacade.findAll();
+        //PREGUNTARLE A NICO
+        GenericType<List<Eventos>> genericoEvento = new GenericType<List<Eventos>>() {
+        };
+        List<Eventos> todos = evtClient.findAll_XML(genericoEvento);
+
+        //------
         eventos = new ArrayList<>();
         for (Eventos e : todos) {
 
             if (e.getIdOrganizacion() == idOrganizacion) {
                 eventos.add(e);
             }
-
         }
 
-        // 4) Si todo está OK, devolvemos SUCCESS para que Struts cargue la JSP
+        //listo las entradas para recoger el precio y asignarlo al evento
+        GenericType<List<Entradas>> genericoEntradas = new GenericType<List<Entradas>>() {
+        };
+        List<Entradas> listadoEntradas = entClient.findAll_XML(genericoEntradas);
+        entradas = listadoEntradas;
+
         return SUCCESS;
     }
 
-    
+    public List<Entradas> getEntradas() {
+        return entradas;
+    }
+
+    public void setEntradas(List<Entradas> entradas) {
+        this.entradas = entradas;
+    }
+
+    public OrganizacionesJerseyClient getOrgClient() {
+        return orgClient;
+    }
+
+    public void setOrgClient(OrganizacionesJerseyClient orgClient) {
+        this.orgClient = orgClient;
+    }
+
+    public EventosJerseyClient getEvtClient() {
+        return evtClient;
+    }
+
+    public void setEvtClient(EventosJerseyClient evtClient) {
+        this.evtClient = evtClient;
+    }
+
+    public EntradasJerseyClient getEntClient() {
+        return entClient;
+    }
+
+    public void setEntClient(EntradasJerseyClient entClient) {
+        this.entClient = entClient;
+    }
+
     public Integer getIdOrganizacion() {
         return idOrganizacion;
     }
@@ -87,4 +111,5 @@ public class OrganizationAction extends ActionSupport {
     public void setEventos(List<Eventos> eventos) {
         this.eventos = eventos;
     }
+    
 }
