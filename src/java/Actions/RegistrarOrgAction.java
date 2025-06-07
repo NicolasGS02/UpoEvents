@@ -23,7 +23,7 @@ public class RegistrarOrgAction extends ActionSupport {
     }
     
     public String execute() throws Exception {
-        System.out.println("datos form ------- " + nombre + direccion + password);
+       
         Organizaciones org = new Organizaciones(null, nombre, direccion, password);
         orgClient.create_XML(org);
         return SUCCESS;

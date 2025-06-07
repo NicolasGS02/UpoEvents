@@ -66,6 +66,13 @@ public class Usuarios implements Serializable {
         this.password = password;
     }
 
+    public Usuarios(String correo, String nombre, String password, String escuela) {
+        this.correo = correo;
+        this.nombre = nombre;
+        this.password = password;
+        this.escuela = escuela;
+    }
+
     public String getCorreo() {
         return correo;
     }

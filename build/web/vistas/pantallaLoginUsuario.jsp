@@ -11,11 +11,7 @@
     <body>
         <div class="login-container">
 
-            <s:if test="hasActionErrors()">
-                <div class="error-messages">
-                    <s:actionerror/>
-                </div>
-            </s:if>
+            
 
             <img src="imagenes/lupo_400x400.jpg" alt="Logo Upo">
             <s:form action="login" method="post">
@@ -35,7 +31,7 @@
 
 
 
-            <s:form action="" method="get">
+            <s:form action="FormRegistrarUser">
                 <s:submit value="Registrarse" cssClass="btn secondary-btn" />
             </s:form>
 

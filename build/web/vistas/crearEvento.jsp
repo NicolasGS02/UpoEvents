@@ -10,7 +10,7 @@
 <body>
     <div class="wrapper">
         <!-- Título centrado -->
-        <h1>Crear Evento para:<br/><s:property value="idOrganizacion"/></h1>
+        <h1>Nuevo Evento para:<br/><s:property value="idOrganizacion"/></h1>
 
         
 

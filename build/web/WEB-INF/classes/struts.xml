@@ -76,7 +76,7 @@
             <result name="input">/vistas/crearEvento.jsp</result>
            
         </action>
-        <!-- _______________________________________________ -->  
+        <!-- ___________________actions para eliminar____________________________ -->  
         
         <action name="eliminarEvento"  class="Actions.EliminarEventoAction" >
             <result name="success" type="redirectAction">
@@ -85,7 +85,14 @@
             </result>
             <result name="input">/vistas/pantallaPrincipalOrganizacion.jsp</result>
         </action>
-        
+        <action name="eliminarPublicacion" class="Actions.EliminarPublicacionAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">verOrganizacion</param>
+                <param name="idOrganizacion">${idOrganizacion}</param>
+            </result>
+            <result name="input">/vistas/pantallaPrincipalOrganizacion.jsp</result>
+        </action>
+        <!-- Acciones para registrar usuarios y organizaciones -->
         <action name="FormRegistrarOrg">
             <result>/vistas/registrarOrg.jsp</result>
         </action>
@@ -97,7 +104,17 @@
             <result name="input">/vistas/registrarOrg.jsp</result>
         </action>
         
-                <!--accion para Registar en un evento -->
+        <action name="FormRegistrarUser">
+            <result>/vistas/registrarUsuario.jsp</result>
+        </action>
+        <action name="procesarFormUser" class="Actions.RegistrarUserAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">vistaPrincipal</param>
+            </result>
+            <result name="input">/vistas/registrarUsuario.jsp</result>
+        </action>
+           
+        <!--accion para Registar en un evento -->
         
         <action name="InscribirUsuario" >
             

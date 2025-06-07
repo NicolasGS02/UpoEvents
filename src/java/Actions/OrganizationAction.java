@@ -4,9 +4,11 @@ import JerseyClients.EntradasJerseyClient;
 import com.opensymphony.xwork2.ActionSupport;
 import JerseyClients.OrganizacionesJerseyClient;
 import JerseyClients.EventosJerseyClient;
+import JerseyClients.PublicacionesJerseyClient;
 import Models.Entradas;
 import Models.Organizaciones;
 import Models.Eventos;
+import Models.Publicaciones;
 import java.util.ArrayList;
 import java.util.List;
 import javax.ws.rs.core.GenericType;
@@ -17,9 +19,11 @@ public class OrganizationAction extends ActionSupport {
     private Organizaciones organizacion;   // la organizacion que cargamos desde REST
     private List<Eventos> eventos;         // lista de todos los eventos de esa org
     private List<Entradas> entradas;
+    private List<Publicaciones> publicaciones;
     private OrganizacionesJerseyClient orgClient = new OrganizacionesJerseyClient();
     private EventosJerseyClient evtClient = new EventosJerseyClient();
     private EntradasJerseyClient entClient = new EntradasJerseyClient();
+    private PublicacionesJerseyClient pubClient = new PublicacionesJerseyClient();
 
     @Override
     public void validate() {
@@ -33,7 +37,6 @@ public class OrganizationAction extends ActionSupport {
 
         organizacion = orgClient.find_XML(Organizaciones.class, idOrganizacion.toString());
 
-        //PREGUNTARLE A NICO
         GenericType<List<Eventos>> genericoEvento = new GenericType<List<Eventos>>() {
         };
         List<Eventos> todos = evtClient.findAll_XML(genericoEvento);
@@ -52,7 +55,18 @@ public class OrganizationAction extends ActionSupport {
         };
         List<Entradas> listadoEntradas = entClient.findAll_XML(genericoEntradas);
         entradas = listadoEntradas;
+        
+        //listar las publicaciones de una organizacion
+        GenericType<List<Publicaciones>> genericoPublicaciones = new GenericType<List<Publicaciones>>() {
+        };
+        List<Publicaciones> allPublicaciones = pubClient.findAll_XML(genericoPublicaciones);
 
+        publicaciones = new ArrayList<>();
+        for (Publicaciones p : allPublicaciones) {
+            if (p.getIdOrganizacion() == idOrganizacion) {
+                publicaciones.add(p);
+            }
+        }
         return SUCCESS;
     }
 
@@ -111,5 +125,21 @@ public class OrganizationAction extends ActionSupport {
     public void setEventos(List<Eventos> eventos) {
         this.eventos = eventos;
     }
-    
+
+    public List<Publicaciones> getPublicaciones() {
+        return publicaciones;
+    }
+
+    public void setPublicaciones(List<Publicaciones> publicaciones) {
+        this.publicaciones = publicaciones;
+    }
+
+    public PublicacionesJerseyClient getPubClient() {
+        return pubClient;
+    }
+
+    public void setPubClient(PublicacionesJerseyClient pubClient) {
+        this.pubClient = pubClient;
+    }
+
 }

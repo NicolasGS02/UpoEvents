@@ -13,7 +13,7 @@
         <title>registro org</title>
     </head>
     <body>
-        <h1>Crear nueva cuenta para su organización:</h1>
+        <h1>Crear nueva cuenta para su Organización:</h1>
         <s:form action="procesarForm">
             <s:textfield name="nombre" label="Nombre"/>
             <s:textfield name="direccion" label="Dirección"/>
