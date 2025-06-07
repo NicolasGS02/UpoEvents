@@ -55,7 +55,7 @@ public class OrganizationAction extends ActionSupport {
         };
         List<Entradas> listadoEntradas = entClient.findAll_XML(genericoEntradas);
         entradas = listadoEntradas;
-        
+
         //listar las publicaciones de una organizacion
         GenericType<List<Publicaciones>> genericoPublicaciones = new GenericType<List<Publicaciones>>() {
         };

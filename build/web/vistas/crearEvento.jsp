@@ -15,19 +15,14 @@
         
 
         <s:form action="crearEvento" method="post">
-            
             <s:hidden name="idOrganizacion" value="%{idOrganizacion}"/>
-
-         
             <table class="form-table">
                 <tr>
-                    
                     <td class="field-cell">
                         <s:textfield name="nombreEvento" id="nombre" label="Nombre"/>
                     </td>
                 </tr>
                 <tr>
-                    
                     <td class="field-cell">
                         <s:textfield name="capacidad" id="capacidad" label="Capacidad"/>
                     </td>
@@ -38,26 +33,21 @@
                     </td>
                 </tr>
                 <tr>
-                    
                     <td class="field-cell">
                         <s:textfield name="ubicacion" id="ubicacion" label="Ubicación"/>
                     </td>
                 </tr>
                 <tr>
-                    
                     <td class="field-cell">
                         <s:textfield name="fecha" id="fecha" placeholder="DD/MM/YYYY" label="Fecha"/>
                     </td>
                 </tr>
                 <tr>
-                    
                     <td class="field-cell">
                         <s:textfield name="precio" id="precio"  label="Precio de las Entradas(€)"/>
                     </td>
                 </tr>
             </table>
-
-            <!-- Botones centrados debajo del formulario -->
             <div class="buttons">
                 <button type="submit" class="btn btn-primary">Guardar Evento</button>
                 <a href="<s:url action='verOrganizacion'><s:param name='idOrganizacion' value='%{idOrganizacion}'/></s:url>" 
