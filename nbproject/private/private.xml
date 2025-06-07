@@ -3,34 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/agarc/Downloads/IA/IT/trabajo%20IT/UpoEvents2/UpoEvents/src/java/Actions/RegistrarUserAction.java</file>
-            <file>file:/C:/Users/agarc/Downloads/IA/IT/trabajo%20IT/UpoEvents2/UpoEvents/web/vistas/pantallaLoginOrg.jsp</file>
-            <file>file:/C:/Users/agarc/Downloads/IA/IT/trabajo%20IT/UpoEvents2/UpoEvents/src/java/Actions/LoginOrgAction.java</file>
-            <file>file:/C:/Users/agarc/Downloads/IA/IT/trabajo%20IT/UpoEvents2/UpoEvents/src/java/JerseyClients/UsuariosJerseyClient.java</file>
-            <file>file:/C:/Users/agarc/Downloads/IA/IT/trabajo%20IT/UpoEvents2/UpoEvents/src/java/Actions/DetallesDeEventoAction.java</file>
-            <file>file:/C:/Users/agarc/Downloads/IA/IT/trabajo%20IT/UpoEvents2/UpoEvents/src/java/JerseyClients/EntradaUsuariosJerseyClient.java</file>
-            <file>file:/C:/Users/agarc/Downloads/IA/IT/trabajo%20IT/UpoEvents2/UpoEvents/src/java/Models/Eventos.java</file>
-            <file>file:/C:/Users/agarc/Downloads/IA/IT/trabajo%20IT/UpoEvents2/UpoEvents/src/java/Models/Entradas.java</file>
-            <file>file:/C:/Users/agarc/Downloads/IA/IT/trabajo%20IT/UpoEvents2/UpoEvents/src/java/Actions/EliminarPublicacionAction.java</file>
-            <file>file:/C:/Users/agarc/Downloads/IA/IT/trabajo%20IT/UpoEvents2/UpoEvents/src/java/JerseyClients/EntradasJerseyClient.java</file>
-            <file>file:/C:/Users/agarc/Downloads/IA/IT/trabajo%20IT/UpoEvents2/UpoEvents/web/vistas/registrarUsuario.jsp</file>
-            <file>file:/C:/Users/agarc/Downloads/IA/IT/trabajo%20IT/UpoEvents2/UpoEvents/src/java/JerseyClients/EventosJerseyClient.java</file>
-            <file>file:/C:/Users/agarc/Downloads/IA/IT/trabajo%20IT/UpoEvents2/UpoEvents/web/CSS/pantallaPrincipalUsuarioCSS.css</file>
-            <file>file:/C:/Users/agarc/Downloads/IA/IT/trabajo%20IT/UpoEvents2/UpoEvents/src/java/Actions/LoginAction.java</file>
-            <file>file:/C:/Users/agarc/Downloads/IA/IT/trabajo%20IT/UpoEvents2/UpoEvents/src/java/Actions/mostrarFormEventAction.java</file>
-            <file>file:/C:/Users/agarc/Downloads/IA/IT/trabajo%20IT/UpoEvents2/UpoEvents/src/java/JerseyClients/PublicacionesJerseyClient.java</file>
-            <file>file:/C:/Users/agarc/Downloads/IA/IT/trabajo%20IT/UpoEvents2/UpoEvents/web/CSS/pantallaPrincipalOrganizacionCSS.css</file>
-            <file>file:/C:/Users/agarc/Downloads/IA/IT/trabajo%20IT/UpoEvents2/UpoEvents/src/java/Models/service/EntradasFacadeREST.java</file>
-            <file>file:/C:/Users/agarc/Downloads/IA/IT/trabajo%20IT/UpoEvents2/UpoEvents/web/vistas/pantallaLoginUsuario.jsp</file>
-            <file>file:/C:/Users/agarc/Downloads/IA/IT/trabajo%20IT/UpoEvents2/UpoEvents/src/java/Actions/NewEventAction.java</file>
-            <file>file:/C:/Users/agarc/Downloads/IA/IT/trabajo%20IT/UpoEvents2/UpoEvents/web/vistas/pantallaPrincipal.jsp</file>
-            <file>file:/C:/Users/agarc/Downloads/IA/IT/trabajo%20IT/UpoEvents2/UpoEvents/src/java/struts.xml</file>
-            <file>file:/C:/Users/agarc/Downloads/IA/IT/trabajo%20IT/UpoEvents2/UpoEvents/web/CSS/pantallaLoginOrgCSS.css</file>
-            <file>file:/C:/Users/agarc/Downloads/IA/IT/trabajo%20IT/UpoEvents2/UpoEvents/src/java/Actions/ListarEventosUsuarioAction.java</file>
-            <file>file:/C:/Users/agarc/Downloads/IA/IT/trabajo%20IT/UpoEvents2/UpoEvents/web/vistas/pantallaPrincipalOrganizacion.jsp</file>
-            <file>file:/C:/Users/agarc/Downloads/IA/IT/trabajo%20IT/UpoEvents2/UpoEvents/src/java/JerseyClients/ComentarioPublicacionesJerseyClient.java</file>
-            <file>file:/C:/Users/agarc/Downloads/IA/IT/trabajo%20IT/UpoEvents2/UpoEvents/src/java/Actions/OrganizationAction.java</file>
-            <file>file:/C:/Users/agarc/Downloads/IA/IT/trabajo%20IT/UpoEvents2/UpoEvents/web/vistas/crearEvento.jsp</file>
+            <file>file:/C:/Users/OGM/Documents/GitHub/UpoEvents/src/java/Actions/DetallesDeEventoAction.java</file>
         </group>
     </open-files>
 </project-private>
