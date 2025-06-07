@@ -15,7 +15,9 @@ import javax.ws.rs.core.GenericType;
 
 public class OrganizationAction extends ActionSupport {
 
-    private Integer idOrganizacion;        // llega desde la URL (?idOrganizacion=123)
+    private Integer idOrganizacion;
+    private int idEvento;
+    private int idEntrada;// llega desde la URL (?idOrganizacion=123)
     private Organizaciones organizacion;   // la organizacion que cargamos desde REST
     private List<Eventos> eventos;         // lista de todos los eventos de esa org
     private List<Entradas> entradas;
