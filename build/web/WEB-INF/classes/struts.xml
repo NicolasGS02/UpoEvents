@@ -96,5 +96,25 @@
             </result>
             <result name="input">/vistas/registrarOrg.jsp</result>
         </action>
+        
+                <!--accion para Registar en un evento -->
+        
+        <action name="InscribirUsuario" >
+            
+            <result type="chain">
+                <param name="actionName">pagoHecho</param>
+            </result>
+
+        </action>
+        
+        <action name="pagoHecho" class="Actions.registrarUsuarioEventoAction">
+            <result name="success" type="chain">
+                <param name="actionName">cargarEventos</param>
+            </result>      
+        </action>
+        
+        <!-- _______________________________________________ -->  
+        
+        
     </package>
 </struts>
