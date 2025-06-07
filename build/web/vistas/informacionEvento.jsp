@@ -35,6 +35,9 @@
         <!-- Contenido principal -->
         <div>
             <h1>EVENTO: <s:property value="evento.nombreEvento" /></h1>
+            <h3>ORGANIZADO POR:<s:property value="%{org.nombre}" /></h3>
+            <p>Número de Participantes</p>
+            
             <p><s:property value="evento.informacion" /></p>
         </div>
 
@@ -61,10 +64,15 @@
 
         <!-- Botón de acción -->
         <div>
-            <form>
+            <s:form action="InscribirUsuario">
+                
+                
                 <s:hidden name="identificadorEvento" value="%{evento.idEvento}" />
+                <s:hidden name="correoUsuario" value="%{user}" />
                 <s:submit value="Inscribirse" />
-            </form>
+                
+            </s:form>
+
         </div>
     </div>
 

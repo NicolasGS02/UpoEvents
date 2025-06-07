@@ -61,9 +61,9 @@ public class ListarEventosUsuarioAction extends ActionSupport {
            
             for (int j = 0; j < todosEventos.size(); j++) {
                 
-                if(entradaCogida.getIdEvento() == todosEventos.get(i).getIdEvento()){
+                if(entradaCogida.getIdEvento() == todosEventos.get(j).getIdEvento()){
                     
-                    eventosUsuario.add(todosEventos.get(i));
+                    eventosUsuario.add(todosEventos.get(j));
                     break;
                 }
                 

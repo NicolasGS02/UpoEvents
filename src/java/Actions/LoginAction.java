@@ -31,21 +31,21 @@ public class LoginAction extends ActionSupport {
 
     public String execute() throws Exception {
         
-        String respuesta = "success";
+
 
         UsuariosJerseyClient userControl = new UsuariosJerseyClient();
         
         //Comprobamos que no haya dejado algún valor del formulario Vacio.
         if (identificador.equals("") || password.equals("")) {
 
-            respuesta = "error";
+            return ERROR;
         } else {
 
             this.user = userControl.find_XML(Usuarios.class, identificador);
             
             //Miramos si la contraseña es la misma.
             if (!user.getPassword().equals(password)) {
-                respuesta = "error";
+                return ERROR;
             }
 
         }
@@ -53,7 +53,7 @@ public class LoginAction extends ActionSupport {
 
         userControl.close();
 
-        return respuesta;
+        return SUCCESS;
 
     }
 

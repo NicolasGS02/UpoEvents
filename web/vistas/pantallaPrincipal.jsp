@@ -41,7 +41,7 @@
                     <s:form action="detalleEventos">
 
                         <s:hidden name="identificadorEvento" value="%{#evento.idEvento}" />
-                        <s:hidden name="user" value="user" ></s:hidden>
+                        <s:hidden name="user" value="%{user.correo}" />
                         
                         <s:submit value="Ver detalles."></s:submit>       
                     </s:form>
@@ -71,7 +71,18 @@
             <tr>
                 <td><s:property value="#evento.nombreEvento" /></td>
                 <td><s:property value="#evento.informacion" /></td>
+                                
+                <td>
+                    <s:form action="detalleEventos">
+
+                        <s:hidden name="identificadorEvento" value="%{#evento.idEvento}" />
+                        <s:hidden name="user" value="%{user.correo}" />
+                        
+                        <s:submit value="Ver detalles."></s:submit>       
+                    </s:form>
+                </td>
             </tr>
+            
         </s:iterator>
     </table>
 </s:if>
