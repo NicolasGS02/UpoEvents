@@ -19,7 +19,9 @@
         <a href="<s:property value="urlShowCrearEvento"/>">
             <button>Crear Nuevo Evento</button>
         </a>
-
+        <s:form action="vistaPrincipal">
+            <s:submit value="Cerrar Sesión" ></s:submit>       
+        </s:form>
         <hr/>
 
 
@@ -57,7 +59,7 @@
                                 <s:hidden name="idEvento" value="%{#eve.idEvento}" />
                                 <s:hidden name="idOrganizacion" value="%{organizacion.idOrganizacion}" ></s:hidden>
 
-                                <s:submit value="Eliminar."></s:submit>       
+                                <s:submit value="Eliminar"></s:submit>       
                             </s:form>
 
 
@@ -67,10 +69,45 @@
                 </s:iterator>
             </table>
         </s:else>
-        <s:form action="vistaPrincipal">
-            <s:submit value="Cerrar Sesión." cssClass="btn"  ></s:submit>       
-        </s:form>
+        <h2>Mis Publicaciones</h2>
+        <s:if test="publicaciones == null or publicaciones.size() == 0">
+            <p>Aún no existen publicaciones para esta organización.</p>
+        </s:if>
+        <s:else>
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Titulo</th>
+                    <th>Contenido</th>
+                    <th>Fecha Publicación</th>
+                    <th>Acciones</th>
+                </tr>
+                <s:iterator value="publicaciones" var="pub">
+                    <tr>
+                        <td><s:property value="#pub.idPublicacion"/></td>
+                        <td><s:property value="#pub.titulo"/></td>
+                        <td><s:property value="#pub.contenido"/></td>
+                        <td><s:property value="#pub.fechaPublicacion"/></td>
+                        <td>
+                            <s:form action="eliminarPublicacion">
+                                <s:hidden name="idPublicacion" value="%{#pub.idPublicacion}" />
+                                <s:hidden name="idOrganizacion" value="%{organizacion.idOrganizacion}" ></s:hidden>
 
-        <s:actionerror/>
+                                <s:submit value="Eliminar"></s:submit>       
+                            </s:form>
+                            <s:form action="modPublicacion">
+                                <s:hidden name="idPublicacion" value="%{#pub.idPublicacion}" />
+                                <s:hidden name="idOrganizacion" value="%{organizacion.idOrganizacion}" ></s:hidden>
+
+                                <s:submit value="Editar"></s:submit>       
+                            </s:form>
+
+
+                        </td>
+                    </tr>
+                </s:iterator>
+            </table>
+        </s:else>
+
     </body>
 </html>

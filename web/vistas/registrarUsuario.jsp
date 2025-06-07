@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib uri="/struts-tags" prefix="s" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,6 +13,16 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Crear nueva cuenta de usuario:</h1>
+        <s:form action="procesarFormUser">
+            <s:textfield name="correo" label="Correo"/>
+
+            <s:textfield name="nombre" label="Nombre"/>
+            <s:password name="password" label="Password"/>
+
+            <s:textfield name="escuela" label="Escuela a la que pertenece"/>
+
+            <s:submit name="Registrar"/>
+        </s:form>
     </body>
 </html>
