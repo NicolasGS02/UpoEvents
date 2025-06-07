@@ -69,7 +69,10 @@
                 
                 <s:hidden name="identificadorEvento" value="%{evento.idEvento}" />
                 <s:hidden name="correoUsuario" value="%{user}" />
-                <s:submit value="Inscribirse" />
+                <s:if test="noPermitir != true">
+                <s:submit value="Inscribirse" />    
+                </s:if>
+                
                 
             </s:form>
 
