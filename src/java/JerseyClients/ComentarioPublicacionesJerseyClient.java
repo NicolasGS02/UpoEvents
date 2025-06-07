@@ -22,7 +22,7 @@ import javax.ws.rs.core.GenericType;
  *        client.close();
  * </pre>
  *
- * @author agarc
+ * @author Pc
  */
 public class ComentarioPublicacionesJerseyClient {
 

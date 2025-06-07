@@ -78,9 +78,7 @@ public class registrarUsuarioEventoAction extends ActionSupport {
             }
                 
         }
- 
 
-        System.out.println(">>>>>>>VALOR DE LA ENTRADA: " + entrada.getIdEntrada());
         
         
         

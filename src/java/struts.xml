@@ -26,6 +26,15 @@
         </action>
         
         
+                
+        <action name="vueltaAtras" class="Actions.vueltaAtras">
+            <result type="chain">
+                <param name="actionName">cargarEventos</param>
+            </result>
+            
+        </action>
+        
+        
         <action name="cargarEventos" class="Actions.ListarEventosUsuarioAction">
             <result>/vistas/pantallaPrincipal.jsp</result>
         </action>
@@ -130,6 +139,9 @@
             </result>
 
         </action>
+
+        
+        
         
         <action name="pagoHecho" class="Actions.registrarUsuarioEventoAction">
             <result name="success" type="chain">
@@ -172,5 +184,14 @@
             </result>
             <result name="input">/vistas/editarEvento.jsp</result>
         </action>
+        
+        
+        <!--Mostrar la publicación completa -->
+        <action name="mostrarPublicacionCompleta" class="Actions.DetallesPublicacionAction">
+            <result name="success">/vistas/mostrarPublicacionCompleta.jsp</result>
+        </action>
+        
+        
+        
     </package>
 </struts>

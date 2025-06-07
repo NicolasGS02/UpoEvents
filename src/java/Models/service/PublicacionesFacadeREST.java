@@ -22,7 +22,7 @@ import javax.ws.rs.core.MediaType;
 
 /**
  *
- * @author agarc
+ * @author Pc
  */
 @Stateless
 @Path("models.publicaciones")

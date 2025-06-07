@@ -8,9 +8,11 @@ package Actions;
 import JerseyClients.EntradaUsuariosJerseyClient;
 import JerseyClients.EntradasJerseyClient;
 import JerseyClients.EventosJerseyClient;
+import JerseyClients.PublicacionesJerseyClient;
 import Models.Entradas;
 import Models.Entradausuarios;
 import Models.Eventos;
+import Models.Publicaciones;
 import Models.Usuarios;
 import static com.opensymphony.xwork2.Action.SUCCESS;
 import com.opensymphony.xwork2.ActionSupport;
@@ -31,6 +33,8 @@ public class ListarEventosUsuarioAction extends ActionSupport {
     private List<Eventos> eventosUsuario = new ArrayList<>();
     private List<Entradausuarios> entradasDelUsuario = new ArrayList<>();
     private Entradas entradaCogida;
+    
+    private List<Publicaciones> listaPublicaciones = new ArrayList<>();
     
     
     
@@ -75,6 +79,16 @@ public class ListarEventosUsuarioAction extends ActionSupport {
      
         eventosClient.close();
         entraUser.close();
+        
+        
+        //AHORA AQUI AÑADIREMOS LAS PUBLICACIONES.
+        
+        PublicacionesJerseyClient publicacionesClient = new PublicacionesJerseyClient();
+        GenericType<List<Publicaciones>> genericoPublicaciones = new GenericType<List<Publicaciones>>() {};
+        listaPublicaciones = publicacionesClient.findAll_XML(genericoPublicaciones);
+        
+        
+        
         ent.close();
         
         return SUCCESS;
@@ -119,5 +133,14 @@ public class ListarEventosUsuarioAction extends ActionSupport {
     public void setEntradaCogida(Entradas entradaCogida) {
         this.entradaCogida = entradaCogida;
     }
+
+    public List<Publicaciones> getListaPublicaciones() {
+        return listaPublicaciones;
+    }
+
+    public void setListaPublicaciones(List<Publicaciones> listaPublicaciones) {
+        this.listaPublicaciones = listaPublicaciones;
+    }
     
+
 }

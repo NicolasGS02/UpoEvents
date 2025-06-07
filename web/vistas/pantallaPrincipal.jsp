@@ -61,7 +61,7 @@
         <h3>Eventos disponibles :</h3>
 
         <s:if test="todosEventos != null && !todosEventos.isEmpty()">
-            <table border="1">
+            <table border="1" >
                 <tr>
                     <th>Nombre</th>
                     <th>Información</th>
@@ -93,7 +93,26 @@
         </s:else>
 
 
+            <h3>¡Publicaciones de las Organizaciones!</h3>
 
+            <s:iterator value="listaPublicaciones" var="publicacion">        
+            <s:a action="mostrarPublicacionCompleta">
 
+                <table>
+                    <tr>
+                        <td><h2>Titulo:</h2><s:property value="#publicacion.titulo" /></td>
+                        <td><h2>Fecha de publicación:</h2><s:property value="#publicacion.fechaPublicacion" /></td>
+                    </tr>
+                </table>
+                        <s:param name="idPublicacion" value="#publicacion.idPublicacion"></s:param>
+                        <s:param name="user" value="%{user.correo}"></s:param>
+             
+            </s:a>   
+            </s:iterator>
+                
+      
+
+            
+            
     </body>
 </html>

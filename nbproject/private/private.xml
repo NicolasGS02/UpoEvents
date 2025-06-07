@@ -2,21 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/agarc/Downloads/IA/IT/trabajo%20IT/UpoEvents2/UpoEvents/web/vistas/editarPublicacion.jsp</file>
-            <file>file:/C:/Users/agarc/Downloads/IA/IT/trabajo%20IT/UpoEvents2/UpoEvents/src/java/Actions/GuardarDatosEventoAction.java</file>
-            <file>file:/C:/Users/agarc/Downloads/IA/IT/trabajo%20IT/UpoEvents2/UpoEvents/src/java/Actions/DetallesDeEventoAction.java</file>
-            <file>file:/C:/Users/agarc/Downloads/IA/IT/trabajo%20IT/UpoEvents2/UpoEvents/src/java/Actions/mostrarFormEditarPubAction.java</file>
-            <file>file:/C:/Users/agarc/Downloads/IA/IT/trabajo%20IT/UpoEvents2/UpoEvents/src/java/struts.xml</file>
-            <file>file:/C:/Users/agarc/Downloads/IA/IT/trabajo%20IT/UpoEvents2/UpoEvents/src/java/Actions/NewPubliAction.java</file>
-            <file>file:/C:/Users/agarc/Downloads/IA/IT/trabajo%20IT/UpoEvents2/UpoEvents/src/java/Actions/mostrarFormEditarOrgAction.java</file>
-            <file>file:/C:/Users/agarc/Downloads/IA/IT/trabajo%20IT/UpoEvents2/UpoEvents/src/java/Actions/GuardarDatosPubAction.java</file>
-            <file>file:/C:/Users/agarc/Downloads/IA/IT/trabajo%20IT/UpoEvents2/UpoEvents/src/java/Actions/mostrarFormEditarEventoAction.java</file>
-            <file>file:/C:/Users/agarc/Downloads/IA/IT/trabajo%20IT/UpoEvents2/UpoEvents/web/vistas/pantallaPrincipalOrganizacion.jsp</file>
-            <file>file:/C:/Users/agarc/Downloads/IA/IT/trabajo%20IT/UpoEvents2/UpoEvents/src/java/JerseyClients/EventosJerseyClient.java</file>
-            <file>file:/C:/Users/agarc/Downloads/IA/IT/trabajo%20IT/UpoEvents2/UpoEvents/src/java/Actions/OrganizationAction.java</file>
-            <file>file:/C:/Users/agarc/Downloads/IA/IT/trabajo%20IT/UpoEvents2/UpoEvents/web/vistas/editarEvento.jsp</file>
-            <file>file:/C:/Users/agarc/Downloads/IA/IT/trabajo%20IT/UpoEvents2/UpoEvents/src/java/Actions/GuardarDatosOrgAction.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

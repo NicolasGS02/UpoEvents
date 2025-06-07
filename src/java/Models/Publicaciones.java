@@ -25,7 +25,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author agarc
+ * @author Pc
  */
 @Entity
 @Table(name = "publicaciones")
