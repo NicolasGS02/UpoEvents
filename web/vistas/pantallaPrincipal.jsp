@@ -75,6 +75,7 @@
                         <td>
                             <s:form action="detalleEventos">
 
+                                
                                 <s:hidden name="identificadorEvento" value="%{#evento.idEvento}" />
                                 <s:hidden name="user" value="%{user.correo}" />
 

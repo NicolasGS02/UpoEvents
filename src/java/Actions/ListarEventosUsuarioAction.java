@@ -12,6 +12,7 @@ import Models.Entradas;
 import Models.Entradausuarios;
 import Models.Eventos;
 import Models.Usuarios;
+import static com.opensymphony.xwork2.Action.SUCCESS;
 import com.opensymphony.xwork2.ActionSupport;
 import java.util.ArrayList;
 import java.util.List;
@@ -61,7 +62,7 @@ public class ListarEventosUsuarioAction extends ActionSupport {
            
             for (int j = 0; j < todosEventos.size(); j++) {
                 
-                if(entradaCogida.getIdEvento() == todosEventos.get(j).getIdEvento()){
+                if(entradaCogida.getIdEvento() == todosEventos.get(j).getIdEvento() && user.getCorreo().equals(entradasDelUsuario.get(i).getCorreo())){
                     
                     eventosUsuario.add(todosEventos.get(j));
                     break;
