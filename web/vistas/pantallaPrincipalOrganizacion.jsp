@@ -14,10 +14,16 @@
             <s:param name="idOrganizacion" value="%{idOrganizacion}"/>
 
         </s:url>
-
         <!-- Botón / enlace -->
         <a href="<s:property value="urlShowCrearEvento"/>">
             <button>Crear Nuevo Evento</button>
+        </a>
+        <s:url id="urlShowCrearPublicacion" action="formCrearPubli">
+            <s:param name="idOrganizacion" value="%{idOrganizacion}"/>
+        </s:url>
+        <!-- Botón / enlace -->
+        <a href="<s:property value="urlShowCrearPublicacion"/>">
+            <button>Crear Nueva Publicación</button>
         </a>
         <s:form action="vistaPrincipal">
             <s:submit value="Cerrar Sesión" ></s:submit>       
@@ -80,6 +86,7 @@
                     <th>Titulo</th>
                     <th>Contenido</th>
                     <th>Fecha Publicación</th>
+                    <th>Imagen</th>
                     <th>Acciones</th>
                 </tr>
                 <s:iterator value="publicaciones" var="pub">
@@ -88,6 +95,19 @@
                         <td><s:property value="#pub.titulo"/></td>
                         <td><s:property value="#pub.contenido"/></td>
                         <td><s:property value="#pub.fechaPublicacion"/></td>
+                        <td><%
+                            byte[] imagenBytes = (byte[]) request.getAttribute("pub.imagen");
+                            if (imagenBytes != null) {
+                                String base64Image = java.util.Base64.getEncoder().encodeToString(imagenBytes);
+                            %>
+                            <img src="data:image/jpeg;base64,<%= base64Image%>" alt="Imagen Publicacion" width="150" />
+                            <%
+                            } else {
+                            %>
+                            <div>No hay imagen disponible.</div>
+                            <%
+                                }
+                            %></td>
                         <td>
                             <s:form action="eliminarPublicacion">
                                 <s:hidden name="idPublicacion" value="%{#pub.idPublicacion}" />

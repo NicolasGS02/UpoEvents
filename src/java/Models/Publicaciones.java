@@ -25,7 +25,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author Pc
+ * @author agarc
  */
 @Entity
 @Table(name = "publicaciones")
@@ -38,12 +38,6 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Publicaciones.findByContenido", query = "SELECT p FROM Publicaciones p WHERE p.contenido = :contenido")
     , @NamedQuery(name = "Publicaciones.findByFechaPublicacion", query = "SELECT p FROM Publicaciones p WHERE p.fechaPublicacion = :fechaPublicacion")})
 public class Publicaciones implements Serializable {
-
-    @Basic(optional = false)
-    @NotNull
-    @Lob
-    @Column(name = "Imagen")
-    private byte[] imagen;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -70,6 +64,9 @@ public class Publicaciones implements Serializable {
     @Column(name = "FechaPublicacion")
     @Temporal(TemporalType.DATE)
     private Date fechaPublicacion;
+    @Lob
+    @Column(name = "Imagen")
+    private byte[] imagen;
 
     public Publicaciones() {
     }
@@ -78,13 +75,12 @@ public class Publicaciones implements Serializable {
         this.idPublicacion = idPublicacion;
     }
 
-    public Publicaciones(Integer idPublicacion, int idOrganizacion, String titulo, String contenido, Date fechaPublicacion, byte[] imagen) {
+    public Publicaciones(Integer idPublicacion, int idOrganizacion, String titulo, String contenido, Date fechaPublicacion) {
         this.idPublicacion = idPublicacion;
         this.idOrganizacion = idOrganizacion;
         this.titulo = titulo;
         this.contenido = contenido;
         this.fechaPublicacion = fechaPublicacion;
-        this.imagen = imagen;
     }
 
     public Integer getIdPublicacion() {
@@ -127,6 +123,13 @@ public class Publicaciones implements Serializable {
         this.fechaPublicacion = fechaPublicacion;
     }
 
+    public byte[] getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(byte[] imagen) {
+        this.imagen = imagen;
+    }
 
     @Override
     public int hashCode() {
@@ -151,14 +154,6 @@ public class Publicaciones implements Serializable {
     @Override
     public String toString() {
         return "Models.Publicaciones[ idPublicacion=" + idPublicacion + " ]";
-    }
-
-    public byte[] getImagen() {
-        return imagen;
-    }
-
-    public void setImagen(byte[] imagen) {
-        this.imagen = imagen;
     }
     
 }

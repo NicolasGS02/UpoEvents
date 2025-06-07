@@ -58,23 +58,30 @@
             <result name="success">/vistas/pantallaPrincipalOrganizacion.jsp</result>
         </action>
         
-        <!-- _______________________________________________ -->  
+        <!-- ___________________crear eventos y publicaciones____________________________ -->  
         
         <!--accion para mostrar el formulario -->
         
         <action name="formCrearEvento" class="Actions.mostrarFormEventAction">
             <result name="success">/vistas/crearEvento.jsp</result>
         </action> 
-        
+        <action name="formCrearPubli" class="Actions.mostrarFormPubliAction">
+            <result name="success">/vistas/crearPublicacion.jsp</result>
+        </action> 
         <!--accion para procesar la creacion del evento una vez rellenado el formulario -->
         <action name="crearEvento" class="Actions.NewEventAction">
             <result name="success" type="redirectAction">
                 <param name="actionName">verOrganizacion</param>
                 <param name="idOrganizacion">${idOrganizacion}</param>
             </result>
-            
             <result name="input">/vistas/crearEvento.jsp</result>
-           
+        </action>
+        <action name="crearPublicacion" class="Actions.NewPubliAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">verOrganizacion</param>
+                <param name="idOrganizacion">${idOrganizacion}</param>
+            </result>
+            <result name="input">/vistas/crearPublicacion.jsp</result>
         </action>
         <!-- ___________________actions para eliminar____________________________ -->  
         
