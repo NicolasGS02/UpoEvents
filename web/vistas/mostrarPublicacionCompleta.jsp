@@ -48,7 +48,7 @@
         <s:iterator value="listadoComentarios" var="comentarios">
             
             
-                
+            <table>
                 <h3>Usuario:<s:property value="#comentarios.correo" /></h3>
                 <p><s:property value="#comentarios.comentario" /></p>
                 <%-- IAMGEN VA AQUI --%>
@@ -59,6 +59,11 @@
                         <s:hidden name="idComentario" value="%{#comentarios.idComentario}"></s:hidden>
                         <s:submit value="Editar comentario"></s:submit>
                         
+                    </s:form>
+                    
+                    <s:form action="eliminarComentario">
+                        <s:hidden name="idComentario" value="%{#comentarios.idComentario}"/>    
+                        <s:submit value="Borrar Comentario" />
                     </s:form>
                         
 

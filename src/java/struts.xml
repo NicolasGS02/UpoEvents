@@ -210,6 +210,32 @@
 
         
         
+        <action name="eliminarComentario" class="Actions.eliminarComentarioAction">
+            <result name="success" type="chain">
+                <param name="actionName">mostrarPublicacionCompleta</param>
+            </result>
+        </action>
+        
+        
+        <action name="dejarValoracionEvento" class="Actions.crearValoracionAction">
+            <result name="success" type="chain">
+                <param name="actionName">detalleEventos</param>
+            </result>
+        </action>
+        
+        
+        <!-- VALORACIONES -->
+        
+        <action name="eliminarValoracion" class="Actions.borrarValoracionAction">
+            <result name="success" type="chain">
+                <param name="actionName">detalleEventos</param>
+            </result>
+        </action>
+        
+        <action name="verFactura" class="Actions.cargarFacturas">
+            <result name="success">/vistas/mostrarFacturasUsuario.jsp</result>
+        </action>
+        
         
     </package>
 </struts>
