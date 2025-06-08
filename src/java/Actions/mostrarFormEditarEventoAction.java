@@ -10,6 +10,9 @@ import JerseyClients.EventosJerseyClient;
 import Models.Entradas;
 import Models.Eventos;
 import com.opensymphony.xwork2.ActionSupport;
+import java.util.ArrayList;
+import java.util.List;
+import javax.ws.rs.core.GenericType;
 
 /**
  *
@@ -23,11 +26,22 @@ public class mostrarFormEditarEventoAction extends ActionSupport {
     Entradas a = new Entradas();
     EventosJerseyClient eClient = new EventosJerseyClient();
     EntradasJerseyClient aClient = new EntradasJerseyClient();
+    
     public mostrarFormEditarEventoAction() {
     }
     
     public String execute() throws Exception {
+        List<Entradas> listadoA = new ArrayList<>();
+     GenericType<List<Entradas>> genericoEntradas = new GenericType<List<Entradas>>() {};
+     listadoA = aClient.findAll_XML(genericoEntradas);
+        for (int i = 0; i < listadoA.size(); i++) {
+            if(listadoA.get(i).getIdEvento() == idEvento){
+                idEntrada = listadoA.get(i).getIdEntrada();
+                break;
+            }
+        }
      eve = eClient.find_XML(Eventos.class, Integer.toString(idEvento));
+     
      a = aClient.find_XML(Entradas.class, Integer.toString(idEntrada));
      return SUCCESS;
     }

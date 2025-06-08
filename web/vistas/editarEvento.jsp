@@ -19,7 +19,7 @@
             <s:form action="editarEve">
                 <s:hidden name="idEvento" value="%{idEvento}"/>
                 <s:hidden name="idOrganizacion" value="%{eve.idOrganizacion}"/>
-                <s:hidden name="idEntrada" value="%{idEntrada}"/>
+                <s:hidden name="idEntrada" value="%{a.idEntrada}"/>
                 <table class="form-table">
                     <tr>
                         <td class="field-cell">
@@ -48,7 +48,7 @@
                     </tr>
                     <tr>
                         <td class="field-cell">
-                            <s:textfield name="precio" label="Precio" value="%{entrada.precio}"/>
+                            <s:textfield name="precio" label="Precio" value="%{a.precio}"/>
                         </td>
                     </tr>
                 </table>

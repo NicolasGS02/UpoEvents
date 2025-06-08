@@ -12,13 +12,14 @@ body {
 
 /* Header */
 header {
-    background-image: url('../imagenes/wrapper.png');
+    background-image: url('../imagenes/fondo4.png');
     background-repeat: repeat;
     background-position: top left;   
     background-size: 150px 150px;
     background-color: #004a99;
     color: black;
     padding: 2rem 0;
+    
 }
 header h1 {
     margin: 0;
@@ -28,28 +29,7 @@ header h1 {
     vertical-align: middle;
 }
 
-/* Nav de acciones */
-.buttons, nav {
-    display: inline-block;
-    vertical-align: middle;
-    margin-left: 2rem;
-}
-nav a, .buttons a, .buttons form button {
-    display: inline-block;
-    margin-right: 0.5rem;
-    padding: 0.5rem 0.9rem;
-    background-color: #007bff;
-    color: #fff;
-    text-decoration: none;
-    border: none;
-    border-radius: 3px;
-    font-size: 0.9rem;
-    cursor: pointer;
-    transition: background-color 0.2s;
-}
-nav a:hover, .buttons a:hover, .buttons form button:hover {
-    background-color: #0056b3;
-}
+
 
 /* Sección principal */
 main {
@@ -127,10 +107,16 @@ a:link, a:visited {
   text-align: center;
   text-decoration: none;
   display: inline-block;
+  width: auto;
+  
 }
 a:hover, a:active {
  background-color: green;
   color: white;
+}
+header img{
+    height: 80px;    
+  width: auto;
 }
 
 

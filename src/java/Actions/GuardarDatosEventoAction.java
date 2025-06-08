@@ -34,7 +34,7 @@ public class GuardarDatosEventoAction extends ActionSupport {
     Entradas entrada = new Entradas();
     EventosJerseyClient eClient = new EventosJerseyClient();
     EntradasJerseyClient entClient = new EntradasJerseyClient();
-    SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+    SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yy");
     Date fecha2;
 
     public GuardarDatosEventoAction() {

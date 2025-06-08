@@ -8,34 +8,37 @@
         <link rel="stylesheet" href="<s:url value='/CSS/pantallaPrincipalOrganizacionCSS.css' />">
     </head>
     <body>
+        <header>
+            <img src="imagenes/lupo_400x400.jpg" alt="Logo Upo">
+            <s:url id="urlShowEditarDatosOrg" action="formEditOrg">
+                <s:param name="idOrganizacion" value="%{idOrganizacion}"/>
+            </s:url>
+            <a href="<s:property value="urlShowEditarDatosOrg"/>">
+                Editar datos Organización
+            </a>
+
+            <s:url id="urlShowCrearEvento" action="formCrearEvento">
+                <s:param name="idOrganizacion" value="%{idOrganizacion}"/>
+            </s:url>
+            <a href="<s:property value="urlShowCrearEvento"/>">
+                Crear Nuevo Evento
+            </a>
+
+            <s:url id="urlShowCrearPublicacion" action="formCrearPubli">
+                <s:param name="idOrganizacion" value="%{idOrganizacion}"/>
+            </s:url>
+            <a href="<s:property value="urlShowCrearPublicacion"/>">
+                Crear Nueva Publicación
+            </a>
+
+            <s:url id="urlLogin" action="vistaPrincipal"/> 
+            <a href="<s:property value='urlLogin'/>" class="btnLogout">
+                Cerrar Sesión
+            </a>
+        </header>
+
+
         <h1>Bienvenido, Organización: <s:property value="organizacion.nombre"/></h1>
-        <s:url id="urlShowEditarDatosOrg" action="formEditOrg">
-            <s:param name="idOrganizacion" value="%{idOrganizacion}"/>
-        </s:url>
-        <a href="<s:property value="urlShowEditarDatosOrg"/>">
-            Editar datos Organización
-        </a>
-
-        <s:url id="urlShowCrearEvento" action="formCrearEvento">
-            <s:param name="idOrganizacion" value="%{idOrganizacion}"/>
-        </s:url>
-        <a href="<s:property value="urlShowCrearEvento"/>">
-            Crear Nuevo Evento
-        </a>
-
-        <s:url id="urlShowCrearPublicacion" action="formCrearPubli">
-            <s:param name="idOrganizacion" value="%{idOrganizacion}"/>
-        </s:url>
-        <a href="<s:property value="urlShowCrearPublicacion"/>">
-            Crear Nueva Publicación
-        </a>
-
-        <s:url id="urlLogin" action="vistaPrincipal"/> 
-        <a href="<s:property value='urlLogin'/>" class="btnLogout">
-            Cerrar Sesión
-        </a>
-
-
         <h2>Mis Eventos</h2>
         <s:if test="eventos == null or eventos.size() == 0">
             <p>Aún no existen eventos para esta organización.</p>
@@ -76,8 +79,8 @@
                             </s:form>
                             <s:form action="formEditEve">
                                 <s:hidden name="idEvento" value="%{#eve.idEvento}" />
-                                <s:hidden name="idOrganizacion" value="%{#eve.idOrganizacion}" ></s:hidden>
-
+                                <s:hidden name="idOrganizacion" value="%{#eve.idOrganizacion}" />
+                                
                                 <s:submit value="Editar"></s:submit>       
                             </s:form>
                         </td>

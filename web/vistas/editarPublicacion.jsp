@@ -17,7 +17,7 @@
         <div class="wrapper">
             <h1>Editar Publicación <s:property value="pub.titulo"/>:</h1>
 
-            <s:form action="editarPub" method="get">
+            <s:form action="editarPub">
                 <s:hidden name="idPublicacion" value="%{idPublicacion}"/>
                 <s:hidden name="idOrganizacion" value="%{pub.idOrganizacion}"/>
                 <table class="form-table">
@@ -33,13 +33,11 @@
                     </tr>
                 </table>
                 <div class="buttons">
-                    <button type="submit" class="btn btn-primary">Guardar</button>
-                    <a href="<s:url action='verOrganizacion'><s:param name='idOrganizacion' value='%{idOrganizacion}'/></s:url>" 
+                    <button type="submit" class="btn btn-primary">Editar</button>
+                    <a href="<s:url action='verOrganizacion'><s:param name='idOrganizacion' value='%{pub.idOrganizacion}'/></s:url>" 
                        class="btn btn-secondary">Cancelar</a>
+
                     </div>
-
-
-
             </s:form>
         </div>
 
