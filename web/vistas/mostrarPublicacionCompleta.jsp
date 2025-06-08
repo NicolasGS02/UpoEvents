@@ -32,10 +32,14 @@
         <hr>
         <h1>Comentarios:</h1>
         <p>Deja un comentario:</p>
-        <s:form action="">
+        <s:form action="crearComentario">
             
             <s:textarea name="contenidoComentario" ></s:textarea>
+            <s:hidden name="idPublicacion" value="%{publicacion.idPublicacion}" />
+            <s:hidden name="user" value="%{user}" />
+            
             <s:file name="imagen"></s:file>
+            <s:submit value="COMENTAR."></s:submit>
             
         </s:form>
         
@@ -49,6 +53,17 @@
                 <p><s:property value="#comentarios.comentario" /></p>
                 <%-- IAMGEN VA AQUI --%>
                 <p><s:property value="#comentarios.fechaComentario" /></p>
+                <s:if test="#comentarios.correo == user">
+                    <s:form action="editarComentarioUsuario">
+                        
+                        <s:hidden name="idComentario" value="%{#comentarios.idComentario}"></s:hidden>
+                        <s:submit value="Editar comentario"></s:submit>
+                        
+                    </s:form>
+                        
+
+
+                </s:if>
                 
             </table>
             
