@@ -24,27 +24,23 @@ public class LoginOrgAction extends ActionSupport {
 
     public String execute() throws Exception {
 
-        String respuesta = "success";
-
         OrganizacionesJerseyClient userControl = new OrganizacionesJerseyClient();
 
-        //Comprobamos que no haya dejado algún valor del formulario Vacio.
-        if (identificador.equals("") || password.equals("")) {
+      
+        this.org = userControl.find_XML(Organizaciones.class, identificador);
 
-            respuesta = "error";
-        } else {
+        return SUCCESS;
 
-            this.org = userControl.find_XML(Organizaciones.class, identificador);
+    }
 
-            //Miramos si la contraseña es la misma.
-            if (!org.getPassword().equals(password)) {
-                respuesta = "error";
-            }
-
+    public void validate() {
+        if(this.identificador == null || this.identificador.trim().isEmpty()){
+            addFieldError("identificador", "El identificador es obligatorio");
         }
-
-        return respuesta;
-
+        if(this.password == null || this.password.trim().isEmpty()){
+            addFieldError("password", "La contraseña es obligatoria");
+        }
+       
     }
 
     public String getIdentificador() {

@@ -18,6 +18,7 @@
         <s:form action="editarPub" method="get">
             <s:hidden name="idPublicacion" value="%{idPublicacion}"/>
             <s:hidden name="idOrganizacion" value="%{pub.idOrganizacion}"/>
+            
             <s:textfield name="titulo" label="Titulo" value="%{pub.titulo}"/>
             <s:textarea name="contenido" label="Contenido" value="%{pub.contenido}"/>
              

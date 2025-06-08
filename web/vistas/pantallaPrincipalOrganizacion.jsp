@@ -43,7 +43,7 @@
         <s:else>
             <table>
                 <tr>
-                    <th>ID</th>
+                    
                     <th>Capacidad</th>
                     <th>Nombre</th>
                     <th>Información</th>
@@ -54,7 +54,7 @@
                 </tr>
                 <s:iterator value="eventos" var="eve">
                     <tr>
-                        <td><s:property value="#eve.idEvento"/></td>
+                        
                         <td><s:property value="#eve.capacidad"/></td>
                         <td><s:property value="#eve.nombreEvento"/></td>
                         <td><s:property value="#eve.informacion"/></td>
@@ -67,8 +67,6 @@
                                 </s:if>
                             </s:iterator>
                         </td>
-
-
                         <td>
                             <s:form action="eliminarEvento">
                                 <s:hidden name="idEvento" value="%{#eve.idEvento}" />
@@ -79,7 +77,7 @@
                             <s:form action="formEditEve">
                                 <s:hidden name="idEvento" value="%{#eve.idEvento}" />
                                 <s:hidden name="idOrganizacion" value="%{#eve.idOrganizacion}" ></s:hidden>
-                                <s:hidden name="idEntrada" value="%{#en.idEntrada}" ></s:hidden>
+                                
                                 <s:submit value="Editar"></s:submit>       
                             </s:form>
                         </td>
@@ -98,7 +96,7 @@
                     <th>Titulo</th>
                     <th>Contenido</th>
                     <th>Fecha Publicación</th>
-                    <th>Imagen</th>
+                    
                     <th>Acciones</th>
                 </tr>
                 <s:iterator value="publicaciones" var="pub">
@@ -107,19 +105,7 @@
                         <td><s:property value="#pub.titulo"/></td>
                         <td><s:property value="#pub.contenido"/></td>
                         <td><s:property value="#pub.fechaPublicacion"/></td>
-                        <td><%
-                            byte[] imagenBytes = (byte[]) request.getAttribute("pub.imagen");
-                            if (imagenBytes != null) {
-                                String base64Image = java.util.Base64.getEncoder().encodeToString(imagenBytes);
-                            %>
-                            <img src="data:image/jpeg;base64,<%= base64Image%>" alt="Imagen Publicacion" width="150" />
-                            <%
-                            } else {
-                            %>
-                            <div>No hay imagen disponible.</div>
-                            <%
-                                }
-                            %></td>
+                       
                         <td>
                             <s:form action="eliminarPublicacion">
                                 <s:hidden name="idPublicacion" value="%{#pub.idPublicacion}" />

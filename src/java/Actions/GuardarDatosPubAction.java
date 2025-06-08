@@ -29,6 +29,7 @@ public class GuardarDatosPubAction extends ActionSupport {
     public String execute() throws Exception {
         pub = new Publicaciones(idPublicacion, idOrganizacion, titulo, contenido, new Date());
         pubClient.edit_XML(pub, Integer.toString(pub.getIdPublicacion()));
+        
         return SUCCESS;
     }
 

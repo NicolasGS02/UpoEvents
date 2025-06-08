@@ -9,7 +9,12 @@ and open the template in the editor.
 */
 
 /* Contenedor centrado en la página */
+
+.body{
+  
+}
 .wrapper {
+     
     width: 90%;
     max-width: 400px;
     margin: 50px auto;      /* 50px desde el top, auto a los lados para centrar */
@@ -21,6 +26,7 @@ and open the template in the editor.
 }
 /* Título centrado */
 .wrapper h1 {
+   
     text-align: center;
     margin-top: 0;
     margin-bottom: 20px;

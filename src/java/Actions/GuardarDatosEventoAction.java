@@ -31,6 +31,7 @@ public class GuardarDatosEventoAction extends ActionSupport {
     private int idEvento;
     private int idEntrada;
     Eventos eve = new Eventos();
+    Entradas entrada = new Entradas();
     EventosJerseyClient eClient = new EventosJerseyClient();
     EntradasJerseyClient entClient = new EntradasJerseyClient();
     SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
@@ -41,24 +42,15 @@ public class GuardarDatosEventoAction extends ActionSupport {
 
     public String execute() throws Exception {
         fecha2 = formato.parse(fecha);
-        Eventos original = eClient.find_XML(Eventos.class, Integer.toString(idEvento));
+        eve = new Eventos(idEvento, idOrganizacion, capacidad, nombreEvento, informacion, ubicacion, fecha2);
 
-        original.setNombreEvento(nombreEvento);
-        original.setCapacidad(capacidad);
-        original.setInformacion(informacion);
-        original.setUbicacion(ubicacion);
-        original.setFecha(fecha2);
+        eClient.edit_XML(eve, Integer.toString(eve.getIdEvento()));
 
-        eClient.edit_XML(original, Integer.toString(idEvento));
+        entrada = new Entradas(idEntrada, idEvento, precio);
 
-        Entradas entrada = entClient.find_XML(Entradas.class, Integer.toString(idEntrada)
-        );
-        entrada.setPrecio(precio);
-        entClient.edit_XML(entrada, Integer.toString(idEntrada));
+        entClient.edit_XML(entrada, Integer.toString(entrada.getIdEntrada()));
         return SUCCESS;
     }
-
-  
 
     public String getNombreEvento() {
         return nombreEvento;
@@ -140,6 +132,14 @@ public class GuardarDatosEventoAction extends ActionSupport {
         this.eve = eve;
     }
 
+    public Entradas getEntrada() {
+        return entrada;
+    }
+
+    public void setEntrada(Entradas entrada) {
+        this.entrada = entrada;
+    }
+
     public EventosJerseyClient geteClient() {
         return eClient;
     }
@@ -156,4 +156,21 @@ public class GuardarDatosEventoAction extends ActionSupport {
         this.entClient = entClient;
     }
 
+    public SimpleDateFormat getFormato() {
+        return formato;
+    }
+
+    public void setFormato(SimpleDateFormat formato) {
+        this.formato = formato;
+    }
+
+    public Date getFecha2() {
+        return fecha2;
+    }
+
+    public void setFecha2(Date fecha2) {
+        this.fecha2 = fecha2;
+    }
+
+  
 }
