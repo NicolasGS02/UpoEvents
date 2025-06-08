@@ -11,9 +11,11 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>alta Publicacion</title>
+         <link rel="stylesheet" href="<s:url value='/CSS/crearEventoCSS.css' />">
     </head>
     <body>
-        <h1>Nueva Publicación para:<br/><s:property value="idOrganizacion"/></h1>
+        <div class="wrapper">
+            <h1>Nueva Publicación para:<br/><s:property value="idOrganizacion"/></h1>
         
         <s:form action="crearPublicacion" method="post">
               <s:hidden name="idOrganizacion" value="%{idOrganizacion}"/>
@@ -35,7 +37,10 @@
                 <button type="submit" class="btn btn-primary">Guardar Publicación</button>
                 <a href="<s:url action='verOrganizacion'><s:param name='idOrganizacion' value='%{idOrganizacion}'/></s:url>" 
                    class="btn btn-secondary">Cancelar</a>
+                  
             </div>
         </s:form>
+        </div>
+        
     </body>
 </html>

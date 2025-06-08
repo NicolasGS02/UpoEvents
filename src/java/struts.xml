@@ -60,7 +60,7 @@
                 <param name="actionName">verOrganizacion</param>
                 <param name="idOrganizacion">${org.idOrganizacion}</param>
             </result>
-            <result name="error">/vistas/pantallaLoginORG.jsp</result>
+            <result name="input">/vistas/pantallaLoginOrg.jsp</result>
         </action>
         
         <action name="verOrganizacion" class="Actions.OrganizationAction">
@@ -179,8 +179,6 @@
             <result name="success" type="redirectAction">
                 <param name="actionName">verOrganizacion</param>
                 <param name="idOrganizacion">${idOrganizacion}</param>
-                <param name="idEvento">${idEvento}</param>
-                <param name="idEntrada">${idEntrada}</param>
             </result>
             <result name="input">/vistas/editarEvento.jsp</result>
         </action>

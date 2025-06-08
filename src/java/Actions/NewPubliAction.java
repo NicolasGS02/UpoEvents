@@ -40,6 +40,9 @@ public class NewPubliAction extends ActionSupport {
         if (this.contenido == null || this.contenido.trim().isEmpty()) {
             addFieldError("contenido", "Debe escribir el contenido de la publicación.");
         }
+        if (this.titulo == null || this.titulo.trim().isEmpty()) {
+            addFieldError("titulo", "Debe escribir el titulo de la publicación.");
+        }
        
     }
 

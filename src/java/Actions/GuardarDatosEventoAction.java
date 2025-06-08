@@ -11,6 +11,8 @@ import Models.Entradas;
 import Models.Eventos;
 import com.opensymphony.xwork2.ActionSupport;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.Date;
 
 /**
@@ -29,28 +31,24 @@ public class GuardarDatosEventoAction extends ActionSupport {
     private int idEvento;
     private int idEntrada;
     Eventos eve = new Eventos();
+    Entradas entrada = new Entradas();
     EventosJerseyClient eClient = new EventosJerseyClient();
     EntradasJerseyClient entClient = new EntradasJerseyClient();
+    SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yy");
+    Date fecha2;
 
     public GuardarDatosEventoAction() {
     }
 
     public String execute() throws Exception {
-        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-        Date fecha2 = formato.parse(fecha);
-        Eventos original = eClient.find_XML(
-                Eventos.class,
-                Integer.toString(idEvento)
-        );
+        fecha2 = formato.parse(fecha);
         eve = new Eventos(idEvento, idOrganizacion, capacidad, nombreEvento, informacion, ubicacion, fecha2);
-        eClient.edit_XML(original, Integer.toString(idEvento));
 
-        Entradas entrada = entClient.find_XML(
-                Entradas.class,
-                Integer.toString(idEntrada)
-        );
-        entrada.setPrecio(precio);
-        entClient.edit_XML(entrada, Integer.toString(idEntrada));
+        eClient.edit_XML(eve, Integer.toString(eve.getIdEvento()));
+
+        entrada = new Entradas(idEntrada, idEvento, precio);
+
+        entClient.edit_XML(entrada, Integer.toString(entrada.getIdEntrada()));
         return SUCCESS;
     }
 
@@ -134,6 +132,14 @@ public class GuardarDatosEventoAction extends ActionSupport {
         this.eve = eve;
     }
 
+    public Entradas getEntrada() {
+        return entrada;
+    }
+
+    public void setEntrada(Entradas entrada) {
+        this.entrada = entrada;
+    }
+
     public EventosJerseyClient geteClient() {
         return eClient;
     }
@@ -150,4 +156,21 @@ public class GuardarDatosEventoAction extends ActionSupport {
         this.entClient = entClient;
     }
 
+    public SimpleDateFormat getFormato() {
+        return formato;
+    }
+
+    public void setFormato(SimpleDateFormat formato) {
+        this.formato = formato;
+    }
+
+    public Date getFecha2() {
+        return fecha2;
+    }
+
+    public void setFecha2(Date fecha2) {
+        this.fecha2 = fecha2;
+    }
+
+  
 }

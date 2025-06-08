@@ -8,34 +8,37 @@
         <link rel="stylesheet" href="<s:url value='/CSS/pantallaPrincipalOrganizacionCSS.css' />">
     </head>
     <body>
+        <header>
+            <img src="imagenes/lupo_400x400.jpg" alt="Logo Upo">
+            <s:url id="urlShowEditarDatosOrg" action="formEditOrg">
+                <s:param name="idOrganizacion" value="%{idOrganizacion}"/>
+            </s:url>
+            <a href="<s:property value="urlShowEditarDatosOrg"/>">
+                Editar datos Organización
+            </a>
+
+            <s:url id="urlShowCrearEvento" action="formCrearEvento">
+                <s:param name="idOrganizacion" value="%{idOrganizacion}"/>
+            </s:url>
+            <a href="<s:property value="urlShowCrearEvento"/>">
+                Crear Nuevo Evento
+            </a>
+
+            <s:url id="urlShowCrearPublicacion" action="formCrearPubli">
+                <s:param name="idOrganizacion" value="%{idOrganizacion}"/>
+            </s:url>
+            <a href="<s:property value="urlShowCrearPublicacion"/>">
+                Crear Nueva Publicación
+            </a>
+
+            <s:url id="urlLogin" action="vistaPrincipal"/> 
+            <a href="<s:property value='urlLogin'/>" class="btnLogout">
+                Cerrar Sesión
+            </a>
+        </header>
+
+
         <h1>Bienvenido, Organización: <s:property value="organizacion.nombre"/></h1>
-        <s:url id="urlShowEditarDatosOrg" action="formEditOrg">
-            <s:param name="idOrganizacion" value="%{idOrganizacion}"/>
-        </s:url>
-        <a href="<s:property value="urlShowEditarDatosOrg"/>">
-            <button>Editar datos Organización</button>
-        </a>
-
-        <s:url id="urlShowCrearEvento" action="formCrearEvento">
-            <s:param name="idOrganizacion" value="%{idOrganizacion}"/>
-        </s:url>
-        <a href="<s:property value="urlShowCrearEvento"/>">
-            <button>Crear Nuevo Evento</button>
-        </a>
-
-        <s:url id="urlShowCrearPublicacion" action="formCrearPubli">
-            <s:param name="idOrganizacion" value="%{idOrganizacion}"/>
-        </s:url>
-        <a href="<s:property value="urlShowCrearPublicacion"/>">
-            <button>Crear Nueva Publicación</button>
-        </a>
-
-        <s:form action="vistaPrincipal">
-            <s:submit value="Cerrar Sesión" ></s:submit>       
-        </s:form>
-        <hr/>
-
-
         <h2>Mis Eventos</h2>
         <s:if test="eventos == null or eventos.size() == 0">
             <p>Aún no existen eventos para esta organización.</p>
@@ -43,7 +46,7 @@
         <s:else>
             <table>
                 <tr>
-                    <th>ID</th>
+
                     <th>Capacidad</th>
                     <th>Nombre</th>
                     <th>Información</th>
@@ -54,7 +57,7 @@
                 </tr>
                 <s:iterator value="eventos" var="eve">
                     <tr>
-                        <td><s:property value="#eve.idEvento"/></td>
+
                         <td><s:property value="#eve.capacidad"/></td>
                         <td><s:property value="#eve.nombreEvento"/></td>
                         <td><s:property value="#eve.informacion"/></td>
@@ -67,8 +70,6 @@
                                 </s:if>
                             </s:iterator>
                         </td>
-
-
                         <td>
                             <s:form action="eliminarEvento">
                                 <s:hidden name="idEvento" value="%{#eve.idEvento}" />
@@ -78,8 +79,8 @@
                             </s:form>
                             <s:form action="formEditEve">
                                 <s:hidden name="idEvento" value="%{#eve.idEvento}" />
-                                <s:hidden name="idOrganizacion" value="%{#eve.idOrganizacion}" ></s:hidden>
-                                <s:hidden name="idEntrada" value="%{#en.idEntrada}" ></s:hidden>
+                                <s:hidden name="idOrganizacion" value="%{#eve.idOrganizacion}" />
+                                
                                 <s:submit value="Editar"></s:submit>       
                             </s:form>
                         </td>
@@ -94,32 +95,20 @@
         <s:else>
             <table>
                 <tr>
-                    <th>ID</th>
+
                     <th>Titulo</th>
                     <th>Contenido</th>
                     <th>Fecha Publicación</th>
-                    <th>Imagen</th>
+
                     <th>Acciones</th>
                 </tr>
                 <s:iterator value="publicaciones" var="pub">
                     <tr>
-                        <td><s:property value="#pub.idPublicacion"/></td>
+
                         <td><s:property value="#pub.titulo"/></td>
                         <td><s:property value="#pub.contenido"/></td>
                         <td><s:property value="#pub.fechaPublicacion"/></td>
-                        <td><%
-                            byte[] imagenBytes = (byte[]) request.getAttribute("pub.imagen");
-                            if (imagenBytes != null) {
-                                String base64Image = java.util.Base64.getEncoder().encodeToString(imagenBytes);
-                            %>
-                            <img src="data:image/jpeg;base64,<%= base64Image%>" alt="Imagen Publicacion" width="150" />
-                            <%
-                            } else {
-                            %>
-                            <div>No hay imagen disponible.</div>
-                            <%
-                                }
-                            %></td>
+
                         <td>
                             <s:form action="eliminarPublicacion">
                                 <s:hidden name="idPublicacion" value="%{#pub.idPublicacion}" />
