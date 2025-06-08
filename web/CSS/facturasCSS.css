@@ -1,0 +1,50 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: beige;  /* Fondo general beige */
+    margin: 0;
+    padding: 2rem;
+    color: #333;
+}
+
+.facturas-container {
+    max-width: 700px;
+    margin: 2rem auto;
+    padding: 0;
+}
+
+.factura-cuadro {
+    background-color: white;   /* Fondo blanco solo para cada factura */
+    border-radius: 12px;
+    padding: 1.5rem 2rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
+}
+
+.factura-cuadro h3 {
+    margin: 0 0 1rem 0;
+    color: #444;
+}
+
+.factura-cuadro p {
+    margin: 0.3rem 0;
+    color: #333;
+}
+
+/* Formulario botón volver, para mantener estilo consistente */
+form {
+    margin: 1rem 0;
+}
+
+input[type="submit"], button, .btn {
+    background-color: #007bff;
+    color: white;
+    padding: 0.5rem 1.2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+input[type="submit"]:hover, button:hover, .btn:hover {
+    background-color: #0056b3;
+}

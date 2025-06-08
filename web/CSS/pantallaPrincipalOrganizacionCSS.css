@@ -6,30 +6,35 @@ body {
     background-color: beige;
     margin: 0;
     padding: 0;
-    
-
 }
 
-/* Header */
-header {
+/* Header / Título principal con fondo e imagen */
+h1 {
     background-image: url('../imagenes/fondo4.png');
     background-repeat: repeat;
-    background-position: top left;   
+    background-position: top left;
     background-size: 150px 150px;
-    background-color: #004a99;
-    color: black;
-    padding: 2rem 0;
     
-}
-header h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 120px;
     margin: 0;
-    padding: 0 2rem;
-    font-size: 1.5rem;
-    display: inline-block;
-    vertical-align: middle;
+    padding: 0;
 }
 
-
+/* Recuadro negro con texto blanco */
+h1::before {
+    content: "UpoEvents";
+    background-color: black;
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 12px;
+    font-size: 2rem;
+    font-weight: bold;
+    box-shadow: 0 0 8px rgba(0,0,0,0.4);
+}
 
 /* Sección principal */
 main {
@@ -42,22 +47,29 @@ h2 {
     margin-bottom: 0.75rem;
     color: #222;
 }
+h3 {
+    font-size: 1.1rem;
+    margin: 1rem 0 0.5rem;
+    color: #333;
+}
 
 /* Tablas */
 table {
     width: 100%;
     border-collapse: collapse;
-    
+    margin-bottom: 1.5rem;
 }
 th, td {
     text-align: left;
-  padding: 8px;
+    padding: 8px;
 }
 th {
-  background-color: bisque;
-  color: black;
+    background-color: bisque;
+    color: black;
 }
-tr:nth-child(even){background-color: #f2f2f2}
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
 
 /* Formularios inline en tabla */
 td form {
@@ -66,7 +78,8 @@ td form {
 }
 
 /* Botones pequeños en la tabla */
-td form button, td form input[type="submit"] {
+td form button,
+td form input[type="submit"] {
     padding: 0.3rem 0.6rem;
     font-size: 0.85rem;
     background-color: #dc3545;
@@ -76,48 +89,51 @@ td form button, td form input[type="submit"] {
     cursor: pointer;
     transition: background-color 0.2s;
 }
-td form button:hover, td form input[type="submit"]:hover {
+td form button:hover,
+td form input[type="submit"]:hover {
     background-color: #c82333;
 }
 
 /* Botón de editar distinto color */
-td form.edit button, td form.edit input[type="submit"] {
+td form.edit button,
+td form.edit input[type="submit"] {
     background-color: #28a745;
 }
-td form.edit button:hover, td form.edit input[type="submit"]:hover {
+td form.edit button:hover,
+td form.edit input[type="submit"]:hover {
     background-color: #218838;
 }
+
+/* Botón logout */
 .btnLogout {
-  display: inline-block;
-  padding: .5rem 1rem;
-  border-radius: 4px;
-  text-decoration: none;
-  color: #c82333;
+    display: inline-block;
+    padding: .5rem 1rem;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #c82333;
 }
-
-
 .btnLogout:hover {
-  background-color: #5a6268;
+    background-color: #5a6268;
 }
+
+/* Enlaces estilo botón */
 a:link, a:visited {
-  background-color: white;
-  color: black;
-  border: 2px solid green;
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  width: auto;
-  
+    background-color: white;
+    color: black;
+    border: 2px solid green;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    width: auto;
 }
 a:hover, a:active {
- background-color: green;
-  color: white;
+    background-color: green;
+    color: white;
 }
-header img{
+
+/* Imágenes en header si las usas */
+header img {
     height: 80px;    
-  width: auto;
+    width: auto;
 }
-
-
-

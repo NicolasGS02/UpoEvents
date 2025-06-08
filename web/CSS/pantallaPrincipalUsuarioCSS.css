@@ -1,40 +1,175 @@
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
-/* 
-    Created on : 07-jun-2025, 12:43:29
-    Author     : agarc
-*/
-
-
-
-
-table {
-    border-collapse: collapse;
-    width: 100%;
+/* Fuente base y fondo */
+body {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: #333;
+    background-color: beige;
+    margin: 0;
+    padding: 0;
 }
-table, th, td {
-    border: 1px solid #ddd;
+
+/* Header / Título principal con fondo e imagen */
+h1 {
+    background-image: url('../imagenes/fondo4.png');
+    background-repeat: repeat;
+    background-position: top left;
+    background-size: 150px 150px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 120px;
+    margin: 0;
+    padding: 0;
 }
-th, td {
-    padding: 8px;
-    text-align: left;
+
+/* Recuadro negro con texto blanco */
+h1::before {
+    content: "UpoEvents";
+    background-color: black;
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 12px;
+    font-size: 2rem;
+    font-weight: bold;
+    box-shadow: 0 0 8px rgba(0,0,0,0.4);
 }
-th {
-    background-color: #f2f2f2;
+
+/* Sección principal */
+main {
+    padding: 2rem;
 }
-.button {
-    padding: 6px 12px;
-    background-color: #007bff;
-    color: black;
+
+/* Títulos de sección */
+h2 {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+    color: #222;
+}
+h3 {
+    font-size: 1.1rem;
+    margin: 1rem 0 0.5rem;
+    color: #333;
+}
+
+/* Contenedor de botones de cabecera */
+.form-bar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    margin: 1rem 2rem;
+    background-color: transparent;
+}
+
+/* Formularios generales */
+form {
+    margin: 0;
+}
+
+/* Botones generales */
+input[type="submit"],
+button {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    background-color: #28a745;
+    color: #fff;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
 }
-.button.delete {
-    background-color: #dc3545;
+input[type="submit"]:hover,
+button:hover {
+    background-color: #218838;
 }
 
+/* Botón logout especial (si se usa) */
+.btnLogout {
+    display: inline-block;
+    padding: .5rem 1rem;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #c82333;
+}
+.btnLogout:hover {
+    background-color: #5a6268;
+}
 
+/* Tablas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1.5rem;
+    background-color: #f2f2f2;
+}
+th, td {
+    text-align: left;
+    padding: 8px;
+    background-color: #f2f2f2;
+}
+th {
+    background-color: bisque;
+    color: black;
+}
+tr:nth-child(even) {
+    background-color: #e6e6e6;
+}
+
+/* Formularios inline en tabla */
+td form {
+    display: inline-block;
+    margin: 0 0.25rem;
+}
+
+/* Botones pequeños en la tabla */
+td form button,
+td form input[type="submit"] {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.85rem;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+td form button:hover,
+td form input[type="submit"]:hover {
+    background-color: #218838;
+}
+
+/* Enlaces estilo botón */
+a:link, a:visited {
+    background-color: white;
+    color: black;
+    border: 2px solid gold;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    width: auto;
+}
+
+/* Enlaces de publicaciones con zoom */
+table a,
+a[href*="mostrarPublicacionCompleta"] {
+    display: inline-block;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s ease-in-out;
+}
+table a:hover,
+a[href*="mostrarPublicacionCompleta"]:hover {
+    transform: scale(1.03);
+}
+a[href*="mostrarPublicacionCompleta"]:visited {
+    color: inherit;
+}
+
+/* Imágenes en header si las usas */
+header img {
+    height: 80px;    
+    width: auto;
+}

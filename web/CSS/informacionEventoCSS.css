@@ -1,0 +1,257 @@
+/* ============================== */
+/* ===== Estilo general ======== */
+/* ============================== */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: beige;
+    margin: 0;
+    padding: 2rem;
+    color: #333;
+}
+
+/* ============================== */
+/* ===== Formularios ========== */
+/* ============================== */
+
+form {
+    margin: 1rem 0;
+}
+
+input[type="submit"], button, .btn {
+    background-color: #007bff;
+    color: white;
+    padding: 0.5rem 1.2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+input[type="submit"]:hover, button:hover, .btn:hover {
+    background-color: #0056b3;
+}
+
+textarea, input[type="text"] {
+    width: 100%;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* ============================== */
+/* ===== Imagen del evento ===== */
+/* ============================== */
+
+img {
+    display: block;
+    margin: 0 auto 1rem auto;
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 6px rgba(0,0,0,0.2);
+}
+
+/* ============================== */
+/* ===== Contenido principal ==== */
+/* ============================== */
+
+h1 {
+    font-size: 2rem;
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+h2, h3 {
+    margin-top: 1.5rem;
+    color: #222;
+}
+
+p {
+    margin-bottom: 0.8rem;
+    line-height: 1.5;
+}
+
+/* ============================== */
+/* ===== Tarjetas de info ======= */
+/* ============================== */
+
+div > div:nth-child(3) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    margin: 2rem 0;
+}
+
+div > div:nth-child(3) > div {
+    background-color: #f8f8f8;
+    border: 1px solid #ccc;
+    padding: 1rem;
+    border-radius: 10px;
+    width: 200px;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+div > div:nth-child(3) h3 {
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+}
+
+/* ============================== */
+/* ===== Botón acción ========== */
+/* ============================== */
+
+hr {
+    margin: 2rem 0;
+    border: 0;
+    border-top: 1px solid #ccc;
+}
+
+/* ============================== */
+/* ===== Sección de facturas ==== */
+/* ============================== */
+
+table {
+    width: 100%;
+    background-color: #f2f2f2;
+    margin: 1rem 0;
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+table h3 {
+    margin: 0.5rem 0;
+    font-size: 1.1rem;
+    color: #444;
+}
+
+table p {
+    margin: 0.2rem 0;
+}
+
+/* ============================== */
+/* ===== Evento principal ======= */
+/* ============================== */
+
+.evento-info {
+    background-color: white;
+    border-radius: 12px;
+    padding: 2rem;
+    max-width: 700px;
+    margin: 2rem auto;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
+    text-align: center;
+}
+
+.evento-info h1 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #222;
+}
+
+.evento-info h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+    color: #444;
+}
+
+.evento-info p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+    margin-top: 1rem;
+}
+
+/* ============================== */
+/* ===== Valoraciones evento ==== */
+/* ============================== */
+
+.valoracion-evento {
+    background-color: white;
+    border-radius: 12px;
+    padding: 2rem;
+    max-width: 700px;
+    margin: 2rem auto;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
+    text-align: left;
+}
+
+.valoracion-evento h2 {
+    color: #222;
+    margin-bottom: 1rem;
+}
+
+/* ============================== */
+/* ===== Botón volver izquierda = */
+/* ============================== */
+
+.boton-volver-izquierda {
+    text-align: left;
+    margin: 1rem 0;
+    max-width: none;
+    background-color: beige;
+    box-shadow: none;
+    padding: 0;
+}
+
+/* ============================== */
+/* ===== Valoraciones individuales */
+/* ============================== */
+
+.valoracion-cuadro {
+    background-color: white;
+    border-radius: 12px;
+    padding: 1.5rem 2rem;
+    margin-bottom: 1.5rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.valoracion-cuadro h3 {
+    margin-top: 0;
+    color: #444;
+}
+
+.valoracion-cuadro p {
+    margin: 0;
+    color: #333;
+}
+
+/* ==== ESTILOS PARA EL FORMULARIO STRUTS (DENTRO DEL CUADRO) ==== */
+
+/* Ocultar estructura de tabla para que no afecte el diseño */
+.valoracion-cuadro .wwFormTable {
+    all: unset;
+    margin-top: 1rem;
+}
+
+/* Alinear correctamente el botón generado */
+.valoracion-cuadro .wwFormTable div[align="right"] {
+    text-align: right;
+}
+
+/* Botón dentro del formulario */
+.valoracion-cuadro input[type="submit"] {
+    background-color: #dc3545;
+    color: white;
+    padding: 0.5rem 1.2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.valoracion-cuadro input[type="submit"]:hover {
+    background-color: #a71d2a;
+}
+
+

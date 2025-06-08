@@ -1,0 +1,71 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 08-jun-2025, 19:36:29
+    Author     : Pc
+*/
+
+/* 
+    Created on : 08-jun-2025
+    Author     : Pc
+*/
+
+/* Contenedor principal centrado */
+.wrapper {
+    width: 90%;
+    max-width: 500px;
+    margin: 60px auto;
+    padding: 25px;
+    background-color: beige;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+/* Título centrado */
+.wrapper h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 25px;
+}
+
+/* Campos de formulario */
+input[type="text"],
+input[type="file"] {
+    width: 100%;
+    padding: 8px 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 15px;
+    box-sizing: border-box;
+}
+
+/* Botón de envío */
+input[type="submit"] {
+    display: block;
+    margin: 0 auto;
+    background-color: #007bff;
+    color: white;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 4px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Clase opcional para errores */
+.error {
+    color: #dc3545;
+    font-size: 14px;
+    margin-bottom: 15px;
+    text-align: center;
+}

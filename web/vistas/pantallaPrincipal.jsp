@@ -34,6 +34,7 @@
                 <tr>
                     <th>Nombre</th>
                     <th>Información</th>
+                    <th>ACCIONES</th>
 
                 </tr>
                 <s:iterator value="eventosUsuario" var="evento">
@@ -69,6 +70,8 @@
                 <tr>
                     <th>Nombre</th>
                     <th>Información</th>
+                    <th>ACCIONES</th>
+
 
                 </tr>
                 <s:iterator value="todosEventos" var="evento">

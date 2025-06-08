@@ -5,7 +5,7 @@
     <head>
         <meta charset="UTF-8" />
         <title>Iniciar Sesión</title>
-    <link rel="stylesheet" href="<s:url value='/CSS/pantallaLoginUsuarioCSS.css' />">
+    <link rel="stylesheet" href="<s:url value='/CSS/pantallaLoginOrgCSS.css' />">
 
     </head>
     <body>

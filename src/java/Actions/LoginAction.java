@@ -53,6 +53,8 @@ public class LoginAction extends ActionSupport {
         return SUCCESS;
 
     }
+    
+
 
     public String getIdentificador() {
         return identificador;
