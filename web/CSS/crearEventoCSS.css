@@ -19,7 +19,7 @@ and open the template in the editor.
     max-width: 400px;
     margin: 50px auto;      /* 50px desde el top, auto a los lados para centrar */
     padding: 20px;
-    background-color: #fff;  /* Opcional, para resaltar la zona */
+    background-color:beige ;  /* Opcional, para resaltar la zona */
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     border-radius: 4px;
     box-sizing: border-box;

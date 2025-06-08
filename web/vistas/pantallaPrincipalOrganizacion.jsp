@@ -13,27 +13,27 @@
             <s:param name="idOrganizacion" value="%{idOrganizacion}"/>
         </s:url>
         <a href="<s:property value="urlShowEditarDatosOrg"/>">
-            <button>Editar datos Organización</button>
+            Editar datos Organización
         </a>
 
         <s:url id="urlShowCrearEvento" action="formCrearEvento">
             <s:param name="idOrganizacion" value="%{idOrganizacion}"/>
         </s:url>
         <a href="<s:property value="urlShowCrearEvento"/>">
-            <button>Crear Nuevo Evento</button>
+            Crear Nuevo Evento
         </a>
 
         <s:url id="urlShowCrearPublicacion" action="formCrearPubli">
             <s:param name="idOrganizacion" value="%{idOrganizacion}"/>
         </s:url>
         <a href="<s:property value="urlShowCrearPublicacion"/>">
-            <button>Crear Nueva Publicación</button>
+            Crear Nueva Publicación
         </a>
 
-        <s:form action="vistaPrincipal">
-            <s:submit value="Cerrar Sesión" ></s:submit>       
-        </s:form>
-        <hr/>
+        <s:url id="urlLogin" action="vistaPrincipal"/> 
+        <a href="<s:property value='urlLogin'/>" class="btnLogout">
+            Cerrar Sesión
+        </a>
 
 
         <h2>Mis Eventos</h2>
@@ -43,7 +43,7 @@
         <s:else>
             <table>
                 <tr>
-                    
+
                     <th>Capacidad</th>
                     <th>Nombre</th>
                     <th>Información</th>
@@ -54,7 +54,7 @@
                 </tr>
                 <s:iterator value="eventos" var="eve">
                     <tr>
-                        
+
                         <td><s:property value="#eve.capacidad"/></td>
                         <td><s:property value="#eve.nombreEvento"/></td>
                         <td><s:property value="#eve.informacion"/></td>
@@ -77,7 +77,7 @@
                             <s:form action="formEditEve">
                                 <s:hidden name="idEvento" value="%{#eve.idEvento}" />
                                 <s:hidden name="idOrganizacion" value="%{#eve.idOrganizacion}" ></s:hidden>
-                                
+
                                 <s:submit value="Editar"></s:submit>       
                             </s:form>
                         </td>
@@ -92,20 +92,20 @@
         <s:else>
             <table>
                 <tr>
-                    <th>ID</th>
+
                     <th>Titulo</th>
                     <th>Contenido</th>
                     <th>Fecha Publicación</th>
-                    
+
                     <th>Acciones</th>
                 </tr>
                 <s:iterator value="publicaciones" var="pub">
                     <tr>
-                        <td><s:property value="#pub.idPublicacion"/></td>
+
                         <td><s:property value="#pub.titulo"/></td>
                         <td><s:property value="#pub.contenido"/></td>
                         <td><s:property value="#pub.fechaPublicacion"/></td>
-                       
+
                         <td>
                             <s:form action="eliminarPublicacion">
                                 <s:hidden name="idPublicacion" value="%{#pub.idPublicacion}" />
