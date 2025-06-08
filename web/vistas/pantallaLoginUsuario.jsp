@@ -12,11 +12,11 @@
         <div class="login-container">
 
             
-
+            <h1>Upo Events</h1>
             <img src="imagenes/lupo_400x400.jpg" alt="Logo Upo">
             <s:form action="login" method="post">
 
-                <h2>Login</h2>
+               
                 <table>
                     <tr>
                         <td><s:textfield name="identificador" id="identificador" label="Usuario"/></td>

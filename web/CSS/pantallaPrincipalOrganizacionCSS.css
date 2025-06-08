@@ -5,11 +5,12 @@ body {
     color: #333;
     background-color: beige;
     margin: 0;
-    padding: 0;
+    padding: 15px;
+    
 }
 
 /* Header / Título principal con fondo e imagen */
-h1 {
+header {
     background-image: url('../imagenes/fondo4.png');
     background-repeat: repeat;
     background-position: top left;
@@ -24,17 +25,7 @@ h1 {
     padding: 0;
 }
 
-/* Recuadro negro con texto blanco */
-h1::before {
-    content: "UpoEvents";
-    background-color: black;
-    color: white;
-    padding: 0.5rem 1.5rem;
-    border-radius: 12px;
-    font-size: 2rem;
-    font-weight: bold;
-    box-shadow: 0 0 8px rgba(0,0,0,0.4);
-}
+
 
 /* Sección principal */
 main {
@@ -136,4 +127,5 @@ a:hover, a:active {
 header img {
     height: 80px;    
     width: auto;
+    float:left;
 }

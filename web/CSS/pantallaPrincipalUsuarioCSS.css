@@ -6,10 +6,11 @@ body {
     background-color: beige;
     margin: 0;
     padding: 0;
+    padding: 15px;
 }
 
 /* Header / Título principal con fondo e imagen */
-h1 {
+header {
     background-image: url('../imagenes/fondo4.png');
     background-repeat: repeat;
     background-position: top left;
@@ -26,7 +27,7 @@ h1 {
 
 /* Recuadro negro con texto blanco */
 h1::before {
-    content: "UpoEvents";
+   
     background-color: black;
     color: white;
     padding: 0.5rem 1.5rem;
@@ -66,6 +67,7 @@ h3 {
 /* Formularios generales */
 form {
     margin: 0;
+  
 }
 
 /* Botones generales */

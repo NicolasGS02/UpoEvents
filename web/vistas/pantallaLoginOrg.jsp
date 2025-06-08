@@ -17,7 +17,7 @@
     <body>
         <div class="login-container">
 
-
+ <h1>Upo Events</h1>
             <s:form action="loginOrg">
                 <img src="imagenes/lupo_400x400.jpg" alt="Logo Upo">
 
