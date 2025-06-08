@@ -27,7 +27,7 @@ public class RegistrarUserAction extends ActionSupport {
     }
 
     public String execute() throws Exception {
-        Usuarios u = new Usuarios(correo, nombre, password, escuela);
+        Usuarios u = new Usuarios(correo, nombre, password,escuela);
         userClient.create_XML(u);
         return SUCCESS;
     }

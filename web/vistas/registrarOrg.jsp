@@ -13,6 +13,7 @@
         <title>registro org</title>
     </head>
     <body>
+        <s:fielderror/>
         <h1>Crear nueva cuenta para su Organización:</h1>
         <s:form action="procesarForm">
             <s:textfield name="nombre" label="Nombre"/>

@@ -21,7 +21,7 @@ import javax.ws.rs.core.GenericType;
  *        client.close();
  * </pre>
  *
- * @author Pc
+ * @author agarc
  */
 public class UsuariosJerseyClient {
 

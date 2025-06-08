@@ -11,6 +11,8 @@ import Models.Entradas;
 import Models.Eventos;
 import com.opensymphony.xwork2.ActionSupport;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.Date;
 
 /**
@@ -31,28 +33,32 @@ public class GuardarDatosEventoAction extends ActionSupport {
     Eventos eve = new Eventos();
     EventosJerseyClient eClient = new EventosJerseyClient();
     EntradasJerseyClient entClient = new EntradasJerseyClient();
+    SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+    Date fecha2;
 
     public GuardarDatosEventoAction() {
     }
 
     public String execute() throws Exception {
-        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-        Date fecha2 = formato.parse(fecha);
-        Eventos original = eClient.find_XML(
-                Eventos.class,
-                Integer.toString(idEvento)
-        );
-        eve = new Eventos(idEvento, idOrganizacion, capacidad, nombreEvento, informacion, ubicacion, fecha2);
+        fecha2 = formato.parse(fecha);
+        Eventos original = eClient.find_XML(Eventos.class, Integer.toString(idEvento));
+
+        original.setNombreEvento(nombreEvento);
+        original.setCapacidad(capacidad);
+        original.setInformacion(informacion);
+        original.setUbicacion(ubicacion);
+        original.setFecha(fecha2);
+
         eClient.edit_XML(original, Integer.toString(idEvento));
 
-        Entradas entrada = entClient.find_XML(
-                Entradas.class,
-                Integer.toString(idEntrada)
+        Entradas entrada = entClient.find_XML(Entradas.class, Integer.toString(idEntrada)
         );
         entrada.setPrecio(precio);
         entClient.edit_XML(entrada, Integer.toString(idEntrada));
         return SUCCESS;
     }
+
+  
 
     public String getNombreEvento() {
         return nombreEvento;

@@ -31,8 +31,6 @@ public class LoginAction extends ActionSupport {
 
     public String execute() throws Exception {
         
-
-
         UsuariosJerseyClient userControl = new UsuariosJerseyClient();
         
         //Comprobamos que no haya dejado algún valor del formulario Vacio.
@@ -50,7 +48,6 @@ public class LoginAction extends ActionSupport {
 
         }
         
-
         userControl.close();
 
         return SUCCESS;
