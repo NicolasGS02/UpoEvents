@@ -190,6 +190,26 @@
         </action>
         
         
+        <action name="crearComentario" class="Actions.CrearComentarioAction">
+            <result type="chain">
+                <param name="actionName">mostrarPublicacionCompleta</param>
+            </result>
+        </action>
+        
+        
+        <action name="editarComentarioUsuario" class="Actions.prepararComentarioAction">
+            <result name="success">/vistas/editarComentario.jsp</result>
+        </action>
+        
+        <action name="actualizarComentario" class="Actions.GuardarDatosComentarioAction">
+            <result type="chain">
+                <param name="actionName">mostrarPublicacionCompleta</param>
+            </result>
+            
+        </action>
+
+        
+        
         
     </package>
 </struts>

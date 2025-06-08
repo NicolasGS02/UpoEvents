@@ -11,6 +11,7 @@ import Models.Comentariopublicaciones;
 import Models.Publicaciones;
 import com.opensymphony.xwork2.ActionSupport;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import javax.ws.rs.core.GenericType;
 
@@ -44,6 +45,15 @@ public class DetallesPublicacionAction extends ActionSupport {
         ComentarioPublicacionesJerseyClient comPublicacionClient = new ComentarioPublicacionesJerseyClient();
         GenericType<List<Comentariopublicaciones>> genericoComPublicacion = new GenericType<List<Comentariopublicaciones>>() {};
         this.listadoComentarios = comPublicacionClient.findAll_XML(genericoComPublicacion);
+        
+        Iterator<Comentariopublicaciones> iterator = listadoComentarios.iterator();
+
+       while (iterator.hasNext()) {
+           Comentariopublicaciones comentario = iterator.next();
+           if (!idPublicacion.equals(Integer.toString(comentario.getIdPublicacion()))) {
+               iterator.remove(); 
+           }
+       }
         
         
         
