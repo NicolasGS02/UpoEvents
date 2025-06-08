@@ -13,6 +13,13 @@
         <title>JSP Page</title>
     </head>
 <body>
+    
+    <s:form action="vueltaAtras">
+        <s:hidden name="correoUsuario" value="%{user}" />
+        <s:submit value="Volver atrás" />
+    </s:form>
+        
+    
 
     <div>
         <!-- Imagen del evento -->
