@@ -10,9 +10,13 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Regustrar Usuario</title>
+        <link rel="stylesheet" href="<s:url value='/CSS/editarComentarioCSS.css' />">
+
     </head>
     <body>
+        <div class="wrapper">
+            
         <h1>Crear nueva cuenta de usuario:</h1>
         <s:form action="procesarFormUser">
             <s:textfield name="correo" label="Correo"/>
@@ -24,5 +28,7 @@
 
             <s:submit name="Registrar"/>
         </s:form>
+        
+        </div>
     </body>
 </html>

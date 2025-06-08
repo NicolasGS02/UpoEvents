@@ -11,8 +11,11 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>registro org</title>
+        <link rel="stylesheet" href="<s:url value='/CSS/editarComentarioCSS.css' />">
+
     </head>
     <body>
+        <div class="wrapper">
         <s:fielderror/>
         <h1>Crear nueva cuenta para su Organización:</h1>
         <s:form action="procesarForm">
@@ -21,5 +24,6 @@
             <s:password name="password" label="Contraseña"/>
             <s:submit name="Registrar"/>
         </s:form>
+        </div>
     </body>
 </html>
