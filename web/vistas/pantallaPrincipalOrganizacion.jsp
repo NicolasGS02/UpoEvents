@@ -9,7 +9,7 @@
     </head>
     <body>
         <header>
-            <img src="imagenes/lupo_400x400.jpg" alt="Logo Upo">
+           
             <s:url id="urlShowEditarDatosOrg" action="formEditOrg">
                 <s:param name="idOrganizacion" value="%{idOrganizacion}"/>
             </s:url>

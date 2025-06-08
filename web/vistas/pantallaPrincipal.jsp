@@ -16,16 +16,26 @@
     </head>
 
     <body>
-        <h1>UpoEvents</h1>
-        <s:form action="vistaPrincipal">
-            <s:submit value="Cerrar Sesión." cssClass="btn"></s:submit>       
-        </s:form>
+        <header>
+            <s:url id="urlLogin" action="vistaPrincipal"/> 
+            <a href="<s:property value='urlLogin'/>" class="btnLogout">
+                Cerrar Sesión
+            </a>
 
+        </header>
         <h2>Usuario: <s:property value="user.nombre"></s:property> </h2>
 
-            Revisar Facturas : <s:form action="verFactura"> <s:hidden name="user" value="%{user.correo}" /> <s:submit value="ver facturas" /> </s:form>
-        
-        
+            <h3>
+              Revisar Facturas : 
+            <s:form action="verFactura"> 
+                <s:hidden name="user" value="%{user.correo}" /> 
+                <s:submit value="ver facturas" /> 
+            </s:form>  
+            </h3> 
+
+
+
+
             <h3>Tus futuros Eventos:</h3>
         <%--Lista de eventos para el Usuario--%>
 
@@ -82,7 +92,7 @@
                         <td>
                             <s:form action="detalleEventos">
 
-                                
+
                                 <s:hidden name="identificadorEvento" value="%{#evento.idEvento}" />
                                 <s:hidden name="user" value="%{user.correo}" />
 
@@ -100,9 +110,9 @@
         </s:else>
 
 
-            <h3>¡Publicaciones de las Organizaciones!</h3>
+        <h3>¡Publicaciones de las Organizaciones!</h3>
 
-            <s:iterator value="listaPublicaciones" var="publicacion">        
+        <s:iterator value="listaPublicaciones" var="publicacion">        
             <s:a action="mostrarPublicacionCompleta">
 
                 <table>
@@ -111,15 +121,15 @@
                         <td><h2>Fecha de publicación:</h2><s:property value="#publicacion.fechaPublicacion" /></td>
                     </tr>
                 </table>
-                        <s:param name="idPublicacion" value="#publicacion.idPublicacion"></s:param>
-                        <s:param name="user" value="%{user.correo}"></s:param>
-             
-            </s:a>   
-            </s:iterator>
-                
-      
+                <s:param name="idPublicacion" value="#publicacion.idPublicacion"></s:param>
+                <s:param name="user" value="%{user.correo}"></s:param>
 
-            
-            
+            </s:a>   
+        </s:iterator>
+
+
+
+
+
     </body>
 </html>
