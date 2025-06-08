@@ -14,6 +14,7 @@
         <link rel="stylesheet" href="<s:url value='/CSS/pantallaPrincipalUsuarioCSS.css' />">
         <title>Inicio</title>
     </head>
+
     <body>
         <h1>UpoEvents</h1>
         <s:form action="vistaPrincipal">
@@ -22,6 +23,9 @@
 
         <h2>Usuario: <s:property value="user.nombre"></s:property> </h2>
 
+            Revisar Facturas : <s:form action="verFactura"> <s:hidden name="user" value="%{user.correo}" /> <s:submit value="ver facturas" /> </s:form>
+        
+        
             <h3>Tus futuros Eventos:</h3>
         <%--Lista de eventos para el Usuario--%>
 

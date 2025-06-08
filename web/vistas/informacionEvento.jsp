@@ -43,6 +43,7 @@
         <div>
             <h1>EVENTO: <s:property value="evento.nombreEvento" /></h1>
             <h3>ORGANIZADO POR:<s:property value="%{org.nombre}" /></h3>
+            <h3>Valoración actual: <s:property value="mediaValoraciones" /></h3>
             <p>Número de Participantes</p>
             
             <p><s:property value="evento.informacion" /></p>
@@ -82,6 +83,49 @@
                 
                 
             </s:form>
+            
+            <hr>
+            
+            <h2>Valoraciones del evento:</h2>
+            
+            <s:form action="dejarValoracionEvento">
+
+                <s:textarea name="comentario" label="Reseña:" />
+                <s:textfield name="valoracion" label="Valoración (1 al 5)" />
+                <s:hidden name="identificadorEvento" value="%{evento.idEvento}" />
+                <s:hidden name="user" value="%{user}" />
+                <s:submit value="Valorar." />
+
+            </s:form>
+            
+            <s:iterator value="listaValoraciones" var="valoraciones">
+            
+                
+                <table>
+                    
+                    <h3>Usuario:<s:property value="#valoraciones.correo" /></h3>
+                    <p><s:property value="#valoraciones.comentario" /></p>
+                    <p>Valoracion: <s:property value="#valoraciones.Puntuacion" /></p>
+                    <%-- IAMGEN VA AQUI --%>
+
+                    <s:if test="#valoraciones.correo == user">
+
+                        <s:form action="eliminarValoracion">
+                            <s:hidden name="idValoracion" value="%{#valoraciones.idValoracion}"/>    
+                            <s:submit value="Borrar Valoracion" />
+                        </s:form>
+
+
+
+                    </s:if>
+
+                </table>
+
+
+            </s:iterator>
+
+
+
 
         </div>
     </div>
